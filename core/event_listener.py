@@ -32,8 +32,6 @@ EVENT_LISTENER_SCRIPT = r"""
             name: target.name,
             className: target.className,
             xpath: getXPath(target),
-            text: target.innerText?.trim().slice(0, 100),
-            value: target.value || null,
             timestamp: Date.now()
         });
     }, true);
@@ -43,7 +41,7 @@ EVENT_LISTENER_SCRIPT = r"""
         if (target && target.matches('input, textarea, select')) {
             window.recordEvent({
                 type: 'input', tag: target.tagName, id: target.id, name: target.name,
-                xpath: getXPath(target), value: target.value, timestamp: Date.now()
+                inputType: target.type || null, xpath: getXPath(target), timestamp: Date.now()
             });
         }
     }, true);
@@ -53,7 +51,8 @@ EVENT_LISTENER_SCRIPT = r"""
         if (target && target.matches('input, textarea, select')) {
             window.recordEvent({
                 type: 'change', tag: target.tagName, id: target.id, name: target.name,
-                xpath: getXPath(target), value: target.value, timestamp: Date.now()
+                inputType: target.type || null, checked: typeof target.checked === 'boolean' ? target.checked : null,
+                xpath: getXPath(target), timestamp: Date.now()
             });
         }
     }, true);

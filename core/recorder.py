@@ -48,7 +48,7 @@ DOM_OBSERVER_SCRIPT = r"""
     window.__recorderObserverInstalled = true;
     // Expanded to track all DOM elements, not just controls
     const controls = 'input, select, textarea, button';
-    const staticElements = 'p, span, div, label, h1, h2, h3, h4, h5, h6, li, td, th, a, strong, em, b, i, u, small, mark, del, ins, sub, sup, code, pre, blockquote, figcaption, legend, dt, dd, summary, caption';
+    const staticElements = 'h1, h2, h3, h4, h5, h6, legend';
     const state = { newFields: [], removedFields: [], visibilityChanges: [], rowChanges: [], panelChanges: [], newTextContent: [], removedTextContent: [] };
     window.__recorderDomChanges = state;
     // Keep the short name for integrations that consume the original observer API.
@@ -224,7 +224,10 @@ class Recorder:
         # Memory management: circular buffer for DOM changes with max size
         self._max_dom_history = 1000  # Maximum number of DOM change entries per type
         self._dom_change_buffers: dict[str, list[Any]] = {
-            key: [] for key in ("newFields", "removedFields", "visibilityChanges", "rowChanges", "panelChanges")
+            key: [] for key in (
+                "newFields", "removedFields", "visibilityChanges", "rowChanges",
+                "panelChanges", "newTextContent", "removedTextContent",
+            )
         }
         
         # Session recovery: periodic save configuration
@@ -398,11 +401,36 @@ class Recorder:
         and records when Python received it in recorded_at for debugging.
         """
         event = dict(event_data)
+        # Defense in depth: the browser listener avoids values, and this guard
+        # prevents an accidental future listener change from writing them.
+        event.pop("value", None)
+        event.pop("text", None)
+        field_key = self._field_key_for_event(event)
+        if field_key:
+            event["field_key"] = field_key
         # Preserve the original JS timestamp as when the event actually occurred
         event["event_occurred_at"] = event.get("timestamp")
         # Record when Python received/dran the event (for debugging latency)
         event["recorded_at"] = datetime.now(timezone.utc).isoformat()
         self.actions.append(event)
+
+    def _field_key_for_event(self, event: dict[str, Any]) -> str | None:
+        """Link an interaction to the latest known schema field when possible."""
+        if not self.last_schema:
+            return None
+        fields = self.last_schema.get("fields", [])
+        xpath = event.get("xpath")
+        if xpath:
+            matches = [field for field in fields if field.get("xpath") == xpath]
+            if len(matches) == 1:
+                return matches[0].get("field_key") or get_field_identity(matches[0])
+        for attribute in ("id", "name"):
+            value = event.get(attribute)
+            if value:
+                matches = [field for field in fields if field.get(attribute) == value]
+                if len(matches) == 1:
+                    return matches[0].get("field_key") or get_field_identity(matches[0])
+        return None
 
     def _on_navigation(self, frame):
         if self.page is not None and frame == self.page.main_frame and self._initial_captured:
@@ -495,7 +523,10 @@ class Recorder:
         return True
 
     def _consume_observer_changes(self):
-        merged: dict[str, list[Any]] = {key: [] for key in ("newFields", "removedFields", "visibilityChanges", "rowChanges", "panelChanges")}
+        merged: dict[str, list[Any]] = {key: [] for key in (
+            "newFields", "removedFields", "visibilityChanges", "rowChanges",
+            "panelChanges", "newTextContent", "removedTextContent",
+        )}
         if self.page is None:
             return merged
         try:
@@ -548,6 +579,14 @@ class Recorder:
                 self._schedule_capture("panel", {"changes": changes["panelChanges"], "panel_id": changes["panelChanges"][0].get("panelId")})
             if changes["rowChanges"]:
                 self._schedule_capture("row_add", {"changes": changes["rowChanges"]})
+            if changes["newTextContent"] or changes["removedTextContent"]:
+                self._schedule_capture(
+                    "dynamic",
+                    {
+                        "new_text": changes["newTextContent"],
+                        "removed_text": changes["removedTextContent"],
+                    },
+                )
             if self._pending_deadline is not None and time.monotonic() >= self._pending_deadline:
                 reason = self._change_type()
                 details = dict(self._pending_details)

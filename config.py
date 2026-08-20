@@ -85,7 +85,7 @@ def is_headless_environment(
 
 
 # Default categories used when no config file is provided
-DEFAULT_CATEGORIES = ["AUTH", "Registration", "Application", "Data Entry"]
+DEFAULT_CATEGORIES = ["AUTH", "Registration", "Application", "Data Entry", "Test"]
 
 
 SESSIONS_DIR = os.path.join(os.path.dirname(__file__), 'recordings', 'sessions')

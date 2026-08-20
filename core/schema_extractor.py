@@ -7,11 +7,11 @@ import time
 from collections import Counter
 from typing import Any
 
-from core.utils import mask_sensitive_value, normalize_xpath
+from core.utils import normalize_xpath
 
 logger = logging.getLogger(__name__)
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def generate_multi_strategy_selector(field: dict[str, Any]) -> dict[str, str | None]:
@@ -47,9 +47,13 @@ def generate_multi_strategy_selector(field: dict[str, Any]) -> dict[str, str | N
     tag = field.get("tag") or field.get("type") or "*"
     tag = str(tag).lower()
     
-    if selectors["id"]:
+    # CSS identifiers and attribute values need escaping. Keep the independent
+    # id/name strategies when that cannot be done safely with a simple selector.
+    css_identifier = re.compile(r"^-?[A-Za-z_][A-Za-z0-9_-]*$")
+    css_attribute_value = re.compile(r'^[^"\\\r\n\f]+$')
+    if selectors["id"] and css_identifier.fullmatch(selectors["id"]):
         selectors["css"] = f"#{selectors['id']}"
-    elif selectors["name"]:
+    elif selectors["name"] and css_attribute_value.fullmatch(selectors["name"]):
         selectors["css"] = f'{tag}[name="{selectors["name"]}"]'
     else:
         # Build CSS from available attributes
@@ -135,7 +139,8 @@ def field_identity_counts(fields: list[dict[str, Any]]) -> Counter[str]:
 
 _EXTRACT_FIELDS_SCRIPT = r"""
 (framePath) => {
-    // Expanded selector to capture ALL elements with data, not just form controls
+    // Capture controls plus small, structural context. Avoid generic div/span
+    // text, which is both noisy and likely to contain user-provided content.
     const controlSelector = 'input, textarea, select, button';
     
     function xpath(element) {
@@ -178,6 +183,27 @@ _EXTRACT_FIELDS_SCRIPT = r"""
         const placeholder = element.getAttribute('placeholder');
         if (placeholder) return placeholder.trim();
         return '';
+    }
+
+    function formInfo(element) {
+        const form = element.form || element.closest('form');
+        if (!form) return { formId: null, formName: null, formAction: null, formMethod: null };
+        return {
+            formId: form.id || null,
+            formName: form.name || null,
+            formAction: form.getAttribute('action') || null,
+            formMethod: (form.getAttribute('method') || 'get').toLowerCase()
+        };
+    }
+
+    function optionsFor(element) {
+        if (element.tagName !== 'SELECT') return null;
+        return Array.from(element.options).map(option => ({
+            value: option.value,
+            label: (option.label || option.text || '').trim(),
+            disabled: !!option.disabled,
+            selected: !!option.selected
+        }));
     }
 
     function hasControl(node) {
@@ -236,6 +262,7 @@ _EXTRACT_FIELDS_SCRIPT = r"""
             if (seen.has(el)) return;
             seen.add(el);
             const row = rowInfo(el);
+            const form = formInfo(el);
             fields.push({
                 type: 'control',
                 tag: el.tagName.toLowerCase(),
@@ -249,7 +276,20 @@ _EXTRACT_FIELDS_SCRIPT = r"""
                 disabled: !!el.disabled,
                 readonly: !!el.readOnly,
                 required: !!el.required,
-                value: el.value || null,
+                // Do not persist entered values. Presence is enough to describe
+                // a state transition without retaining personal data or tokens.
+                value_present: typeof el.value === 'string' ? el.value.length > 0 : false,
+                checked: typeof el.checked === 'boolean' ? el.checked : null,
+                options: optionsFor(el),
+                autocomplete: el.getAttribute('autocomplete') || null,
+                placeholder: el.getAttribute('placeholder') || null,
+                constraints: {
+                    min: el.getAttribute('min'), max: el.getAttribute('max'),
+                    minLength: el.minLength >= 0 ? el.minLength : null,
+                    maxLength: el.maxLength >= 0 ? el.maxLength : null,
+                    pattern: el.getAttribute('pattern'), step: el.getAttribute('step')
+                },
+                form: form,
                 row_index: row.rowIndex,
                 row_key: row.rowKey,
                 row_xpath: row.rowXPath,
@@ -263,8 +303,9 @@ _EXTRACT_FIELDS_SCRIPT = r"""
     function collectStaticContent(root) {
         if (!root || !root.querySelectorAll) return;
         
-        // Target elements that typically contain meaningful text
-        const textSelectors = 'p, span, div, label, h1, h2, h3, h4, h5, h6, li, td, th, a, strong, em, b, i, u, small, mark, del, ins, sub, sup, code, pre, blockquote, figcaption, legend, dt, dd, summary, caption';
+        // Headings and legends provide useful form context without bulk capture
+        // of page content such as application answers or profile information.
+        const textSelectors = 'h1, h2, h3, h4, h5, h6, legend';
         
         root.querySelectorAll(textSelectors).forEach(el => {
             // Skip elements already captured as controls
@@ -304,7 +345,7 @@ _EXTRACT_FIELDS_SCRIPT = r"""
         root.querySelectorAll('*').forEach(el => { if (el.shadowRoot) collectStaticContent(el.shadowRoot); });
     }
     
-    // Collect hidden inputs with values (important for CSRF tokens, etc.)
+    // Keep hidden-field metadata but never record CSRF tokens or other values.
     function collectHiddenInputs(root) {
         if (!root || !root.querySelectorAll) return;
         
@@ -318,7 +359,7 @@ _EXTRACT_FIELDS_SCRIPT = r"""
                 inputType: 'hidden',
                 name: el.name || null,
                 id: el.id || null,
-                value: el.value || null,
+                value_present: !!el.value,
                 xpath: xpath(el),
                 frame_path: framePath,
                 visible: false,
@@ -359,7 +400,8 @@ def extract_form_schema(page: Any, step_name: str, url: str, change_type: str | 
                         change_details: dict[str, Any] | None = None) -> dict[str, Any]:
     """Extract controls from the page, child frames, and open shadow roots.
     
-    Applies sensitive data masking to field values for security.
+    The schema intentionally excludes entered values and hidden tokens. It
+    records only metadata needed to map and replay form interactions safely.
     """
     fields: list[dict[str, Any]] = []
     try:
@@ -371,9 +413,8 @@ def extract_form_schema(page: Any, step_name: str, url: str, change_type: str | 
             extracted = frame.evaluate(_EXTRACT_FIELDS_SCRIPT, _frame_path(frame))
             for field in extracted:
                 field["normalized_xpath"] = normalize_xpath(field.get("xpath"))
-                # Mask sensitive values for security
-                if "value" in field:
-                    field["value"] = mask_sensitive_value(field.get("value"), field)
+                field["field_key"] = get_field_identity(field)
+                field["selectors"] = generate_multi_strategy_selector(field)
             fields.extend(extracted)
         except Exception as exc:
             # A frame can detach between polling and extraction.

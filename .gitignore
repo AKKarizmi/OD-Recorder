@@ -1,1 +1,12 @@
-Nothing should be ignored since the changes only include Python source files (.py) and no build artifacts, dependencies, or temporary files.
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+
+# Local configuration and virtual environments
+config.json
+.venv/
+venv/
+
+# Recorder output may contain portal and personal data. Keep only deliberately
+# sanitised fixtures outside this directory.
+recordings/
