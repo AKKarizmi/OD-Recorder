@@ -1,0 +1,13 @@
+# requirements.txt for Portal Recorder
+# Python 3.10+ required
+
+playwright>=1.40.0
+python-dateutil>=2.8,<3
+pandas>=2.0,<3
+packaging>=21.0
+
+# Optional: pin exact versions for reproducibility (uncomment to use)
+# playwright==1.40.0
+# python-dateutil==2.9.0
+# pandas==2.2.2
+# packaging==24.0
