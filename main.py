@@ -62,7 +62,7 @@ def main():
     print(f"Target Portal: {university['University Name']}")
     print(f"Portal URL: {university['portal_url']}")
 
-    categories = ["AUTH", "Registration", "Application", "Data Entry"]
+    categories = ["Overview of the website", "Login", "Registration", "Portofolio Data Entry"]
     for idx, category in enumerate(categories):
         print(f"{idx}: {category}")
     
