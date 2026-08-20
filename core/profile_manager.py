@@ -10,12 +10,13 @@ from typing import BinaryIO
 
 PROFILE_ENV_VAR = "PORTAL_RECORDER_USER_DATA_DIR"
 LOCK_FILE_NAME = ".recorder.lock"
+# Only Chrome channels supported - no Chromium or Edge
 CHANNEL_DIRECTORY_NAMES = {
     "chrome": "chrome",
     "chrome-beta": "chrome-beta",
-    "chromium": "chromium",
-    "msedge": "msedge",
 }
+# Profile retention: auto-cleanup profiles older than 30 days
+PROFILE_RETENTION_DAYS = 30
 
 
 class ProfileInUseError(RuntimeError):
@@ -300,3 +301,84 @@ class ProfileLock:
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
         self.release()
+
+
+def cleanup_old_profiles(
+    *,
+    older_than_days: int = PROFILE_RETENTION_DAYS,
+    browser_channel: str = "chrome",
+    environ: Mapping[str, str] | None = None,
+    system: str | None = None,
+    dry_run: bool = False,
+) -> list[str]:
+    """Remove Recorder browser profiles older than the specified age.
+    
+    Args:
+        older_than_days: Remove profiles not modified within this many days
+        browser_channel: Chrome channel to clean up (default: "chrome")
+        environ: Environment variables (default: os.environ)
+        system: Platform system name (default: auto-detect)
+        dry_run: If True, only report what would be deleted without deleting
+        
+    Returns:
+        List of removed (or would-be-removed in dry_run) profile paths
+    """
+    import time
+    
+    env = os.environ if environ is None else environ
+    current_system = system or platform.system()
+    home = _home_directory(env)
+    
+    # Get the base directory for recorder profiles
+    try:
+        channel_directory = CHANNEL_DIRECTORY_NAMES[browser_channel]
+    except KeyError as exc:
+        raise ValueError(f"Unsupported browser channel: {browser_channel!r}") from exc
+    
+    if current_system == "Windows":
+        local_app_data = env.get("LOCALAPPDATA") or os.path.join(home, "AppData", "Local")
+        base_dir = os.path.join(local_app_data, "PortalRecorder", "BrowserProfiles", channel_directory)
+    elif current_system == "Darwin":
+        base_dir = os.path.join(
+            home,
+            "Library",
+            "Application Support",
+            "PortalRecorder",
+            "BrowserProfiles",
+            channel_directory,
+        )
+    else:
+        state_home = env.get("XDG_STATE_HOME") or os.path.join(home, ".local", "state")
+        base_dir = os.path.join(state_home, "portal-recorder", "browser-profiles", channel_directory)
+    
+    if not os.path.isdir(base_dir):
+        return []
+    
+    cutoff_time = time.time() - (older_than_days * 24 * 60 * 60)
+    removed = []
+    
+    for entry in os.listdir(base_dir):
+        profile_path = os.path.join(base_dir, entry)
+        if not os.path.isdir(profile_path):
+            continue
+        
+        # Check last modification time
+        try:
+            mtime = os.path.getmtime(profile_path)
+        except OSError:
+            continue
+        
+        if mtime < cutoff_time:
+            if dry_run:
+                removed.append(profile_path)
+                print(f"[DRY RUN] Would remove old profile: {profile_path}")
+            else:
+                try:
+                    import shutil
+                    shutil.rmtree(profile_path)
+                    removed.append(profile_path)
+                    print(f"Removed old profile: {profile_path}")
+                except OSError as e:
+                    print(f"Failed to remove {profile_path}: {e}")
+    
+    return removed

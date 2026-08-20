@@ -135,8 +135,9 @@ def field_identity_counts(fields: list[dict[str, Any]]) -> Counter[str]:
 
 _EXTRACT_FIELDS_SCRIPT = r"""
 (framePath) => {
-    const selector = 'input, textarea, select, button[type="submit"], [role="button"]';
-
+    // Expanded selector to capture ALL elements with data, not just form controls
+    const controlSelector = 'input, textarea, select, button';
+    
     function xpath(element) {
         if (!element || !element.parentNode) return '';
         if (element.id) return '//*[@id="' + element.id.replace(/"/g, '&quot;') + '"]';
@@ -180,7 +181,7 @@ _EXTRACT_FIELDS_SCRIPT = r"""
     }
 
     function hasControl(node) {
-        return node && node.nodeType === 1 && (node.matches(selector) || node.querySelector(selector));
+        return node && node.nodeType === 1 && (node.matches(controlSelector) || node.querySelector(controlSelector));
     }
 
     function rowContainer(element) {
@@ -213,17 +214,30 @@ _EXTRACT_FIELDS_SCRIPT = r"""
             rowXPath: xpath(row)
         };
     }
+    
+    // Extract data attributes from an element
+    function getDataAttributes(element) {
+        const dataAttrs = {};
+        for (const attr of element.attributes) {
+            if (attr.name.startsWith('data-')) {
+                dataAttrs[attr.name] = attr.value;
+            }
+        }
+        return dataAttrs;
+    }
 
     const fields = [];
     const seen = new Set();
-    function collect(root) {
+    
+    // Collect form controls (existing functionality)
+    function collectControls(root) {
         if (!root || !root.querySelectorAll) return;
-        root.querySelectorAll(selector).forEach(el => {
+        root.querySelectorAll(controlSelector).forEach(el => {
             if (seen.has(el)) return;
             seen.add(el);
             const row = rowInfo(el);
             fields.push({
-                type: el.tagName.toLowerCase(),
+                type: 'control',
                 tag: el.tagName.toLowerCase(),
                 inputType: el.type || null,
                 name: el.name || null,
@@ -242,9 +256,83 @@ _EXTRACT_FIELDS_SCRIPT = r"""
                 attributes: Object.fromEntries(Array.from(el.attributes).map(a => [a.name, a.value]))
             });
         });
-        root.querySelectorAll('*').forEach(el => { if (el.shadowRoot) collect(el.shadowRoot); });
+        root.querySelectorAll('*').forEach(el => { if (el.shadowRoot) collectControls(el.shadowRoot); });
     }
-    collect(document);
+    
+    // NEW: Collect static text content and structural elements
+    function collectStaticContent(root) {
+        if (!root || !root.querySelectorAll) return;
+        
+        // Target elements that typically contain meaningful text
+        const textSelectors = 'p, span, div, label, h1, h2, h3, h4, h5, h6, li, td, th, a, strong, em, b, i, u, small, mark, del, ins, sub, sup, code, pre, blockquote, figcaption, legend, dt, dd, summary, caption';
+        
+        root.querySelectorAll(textSelectors).forEach(el => {
+            // Skip elements already captured as controls
+            if (el.matches(controlSelector)) return;
+            
+            const textContent = (el.innerText || '').trim();
+            const ariaLabel = el.getAttribute('aria-label') || '';
+            const ariaDescribedby = el.getAttribute('aria-describedby') || '';
+            const role = el.getAttribute('role') || '';
+            const dataAttrs = getDataAttributes(el);
+            const hasDataAttrs = Object.keys(dataAttrs).length > 0;
+            
+            // Only include if there's meaningful content
+            if (textContent || ariaLabel || ariaDescribedby || role || hasDataAttrs) {
+                const row = rowInfo(el);
+                fields.push({
+                    type: 'static',
+                    tag: el.tagName.toLowerCase(),
+                    textContent: textContent,
+                    ariaLabel: ariaLabel || null,
+                    ariaDescribedby: ariaDescribedby || null,
+                    role: role || null,
+                    id: el.id || null,
+                    xpath: xpath(el),
+                    frame_path: framePath,
+                    visible: !isHidden(el),
+                    className: typeof el.className === 'string' ? el.className.trim() : null,
+                    row_index: row.rowIndex,
+                    row_key: row.rowKey,
+                    row_xpath: row.rowXPath,
+                    dataAttributes: dataAttrs
+                });
+            }
+        });
+        
+        // Recurse into shadow DOM
+        root.querySelectorAll('*').forEach(el => { if (el.shadowRoot) collectStaticContent(el.shadowRoot); });
+    }
+    
+    // Collect hidden inputs with values (important for CSRF tokens, etc.)
+    function collectHiddenInputs(root) {
+        if (!root || !root.querySelectorAll) return;
+        
+        root.querySelectorAll('input[type="hidden"]').forEach(el => {
+            if (seen.has(el)) return;
+            seen.add(el);
+            
+            fields.push({
+                type: 'hidden_data',
+                tag: 'input',
+                inputType: 'hidden',
+                name: el.name || null,
+                id: el.id || null,
+                value: el.value || null,
+                xpath: xpath(el),
+                frame_path: framePath,
+                visible: false,
+                attributes: Object.fromEntries(Array.from(el.attributes).map(a => [a.name, a.value]))
+            });
+        });
+        
+        root.querySelectorAll('*').forEach(el => { if (el.shadowRoot) collectHiddenInputs(el.shadowRoot); });
+    }
+    
+    collectControls(document);
+    collectStaticContent(document);
+    collectHiddenInputs(document);
+    
     return fields;
 }
 """

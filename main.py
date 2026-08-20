@@ -3,34 +3,64 @@ import os
 import sys
 
 from config import BROWSER_CHANNEL
-from core.csv_loader import load_universities
-from core.profile_manager import ensure_recorder_user_data_dir
+from core.profile_manager import ensure_recorder_user_data_dir, cleanup_old_profiles
 from core.recorder import Recorder
+
+
+# Target portal configuration - Open Doors Global University only
+TARGET_PORTAL = {
+    "University Name": "Open Doors Global University",
+    "portal_url": "https://od.globaluni.ru/login"
+}
+SUPPORTED_DOMAINS = {"od.globaluni.ru"}
 
 
 def main():
     parser = argparse.ArgumentParser(description="Recorder for Autofill system")
-    parser.add_argument("--csv", default="dataset.csv", help="Path to dataset.csv")
+    parser.add_argument(
+        "--cleanup-profiles",
+        action="store_true",
+        help="Remove old browser profiles instead of starting recording"
+    )
+    parser.add_argument(
+        "--older-than",
+        type=int,
+        default=30,
+        metavar="DAYS",
+        help="When using --cleanup-profiles, remove profiles older than this many days (default: 30)"
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="With --cleanup-profiles, show what would be deleted without actually deleting"
+    )
     args = parser.parse_args()
 
-    universities = load_universities(args.csv)
-    if not universities:
-        print("No universities found.")
-        sys.exit(1)
+    # Handle profile cleanup command
+    if args.cleanup_profiles:
+        removed = cleanup_old_profiles(
+            older_than_days=args.older_than,
+            dry_run=args.dry_run
+        )
+        if args.dry_run:
+            print(f"\n[DRY RUN] Would remove {len(removed)} old profile(s)")
+        else:
+            print(f"\nRemoved {len(removed)} old profile(s)")
+        sys.exit(0)
 
-    for idx, uni in enumerate(universities):
-        print(f"{idx}: {uni['University Name']} ({uni.get('Portal Link', 'unknown')})")
+    # Use hardcoded target portal
+    university = TARGET_PORTAL
     
-    while True:
-        try:
-            choice = input("Select university index: ").strip()
-            uni_index = int(choice)
-            if 0 <= uni_index < len(universities):
-                university = universities[uni_index]
-                break
-            print(f"Please enter a number between 0 and {len(universities) - 1}.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+    # Validate portal URL domain
+    from urllib.parse import urlparse
+    parsed = urlparse(university["portal_url"])
+    if parsed.netloc not in SUPPORTED_DOMAINS:
+        print(f"Error: Only portals under {SUPPORTED_DOMAINS} are supported.")
+        print(f"Got: {university['portal_url']}")
+        sys.exit(1)
+    
+    print(f"Target Portal: {university['University Name']}")
+    print(f"Portal URL: {university['portal_url']}")
 
     categories = ["AUTH", "Registration", "Application", "Data Entry"]
     for idx, category in enumerate(categories):

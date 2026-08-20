@@ -6,7 +6,8 @@ from typing import Any
 
 TRUE_VALUES = {"1", "true", "yes", "on"}
 FALSE_VALUES = {"0", "false", "no", "off"}
-SUPPORTED_BROWSER_CHANNELS = {"chrome", "chrome-beta", "chromium", "msedge"}
+# Only support real Chrome channels - no Chromium or Edge
+SUPPORTED_BROWSER_CHANNELS = {"chrome", "chrome-beta"}
 
 
 def _optional_bool(value: Any, *, setting_name: str) -> bool | None:
