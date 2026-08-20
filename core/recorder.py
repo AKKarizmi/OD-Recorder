@@ -46,8 +46,10 @@ DOM_OBSERVER_SCRIPT = r"""
 (() => {
     if (window.__recorderObserverInstalled) return;
     window.__recorderObserverInstalled = true;
-    const controls = 'input, select, textarea, button, [role="button"]';
-    const state = { newFields: [], removedFields: [], visibilityChanges: [], rowChanges: [], panelChanges: [] };
+    // Expanded to track all DOM elements, not just controls
+    const controls = 'input, select, textarea, button';
+    const staticElements = 'p, span, div, label, h1, h2, h3, h4, h5, h6, li, td, th, a, strong, em, b, i, u, small, mark, del, ins, sub, sup, code, pre, blockquote, figcaption, legend, dt, dd, summary, caption';
+    const state = { newFields: [], removedFields: [], visibilityChanges: [], rowChanges: [], panelChanges: [], newTextContent: [], removedTextContent: [] };
     window.__recorderDomChanges = state;
     // Keep the short name for integrations that consume the original observer API.
     window.domChanges = state;
@@ -83,11 +85,29 @@ DOM_OBSERVER_SCRIPT = r"""
         return { xpath: xpath(element), id: element.id || null, tag: element.tagName, name: element.name || null };
     }
 
+    function describeStatic(element) {
+        return { 
+            xpath: xpath(element), 
+            id: element.id || null, 
+            tag: element.tagName, 
+            textContent: (element.innerText || '').trim(),
+            className: typeof element.className === 'string' ? element.className : null
+        };
+    }
+
     function controlsIn(node) {
         if (!node || node.nodeType !== 1) return [];
         const result = [];
         if (node.matches(controls)) result.push(node);
         node.querySelectorAll(controls).forEach(item => result.push(item));
+        return result;
+    }
+
+    function staticElementsIn(node) {
+        if (!node || node.nodeType !== 1) return [];
+        const result = [];
+        if (node.matches(staticElements)) result.push(node);
+        node.querySelectorAll(staticElements).forEach(item => result.push(item));
         return result;
     }
 
@@ -103,6 +123,12 @@ DOM_OBSERVER_SCRIPT = r"""
                 item.nowVisible = !hidden(control);
                 pushUnique(state.visibilityChanges, item, 'xpath');
             });
+            // Track visibility changes for static text elements too
+            staticElementsIn(target).forEach(el => {
+                const item = describeStatic(el);
+                item.nowVisible = !hidden(el);
+                pushUnique(state.visibilityChanges, item, 'xpath');
+            });
             const panel = target.closest('.panel, .section, .form-group, [role="group"], [data-panel-id]');
             if (panel && (mutation.attributeName === 'class' || mutation.attributeName === 'style' || mutation.attributeName === 'hidden' || mutation.attributeName === 'aria-hidden')) {
                 pushUnique(state.panelChanges, { panelId: panel.id || panel.getAttribute('data-panel-id') || null, panelXPath: xpath(panel), nowVisible: !hidden(panel) }, 'panelXPath');
@@ -115,6 +141,13 @@ DOM_OBSERVER_SCRIPT = r"""
         if (mutation.type === 'childList') {
             mutation.addedNodes.forEach(node => {
                 controlsIn(node).forEach(control => pushUnique(state.newFields, describe(control), 'xpath'));
+                // Track new static text content
+                staticElementsIn(node).forEach(el => {
+                    const text = (el.innerText || '').trim();
+                    if (text) {
+                        pushUnique(state.newTextContent, describeStatic(el), 'xpath');
+                    }
+                });
                 if (node.nodeType === 1) {
                     const row = rowFor(node) || (node.matches('[data-row-index], [data-index], [data-repeater-item], .repeatable-row, .repeater-item, .education-row, .work-row, .employment-row, .experience-row, .array-row, .dynamic-row') ? node : null);
                     if (row) pushUnique(state.rowChanges, { containerXPath: xpath(row), index: row.getAttribute('data-row-index') || row.getAttribute('data-index') || null, rowKey: row.className || null, nowVisible: !hidden(row) }, 'containerXPath');
@@ -122,6 +155,13 @@ DOM_OBSERVER_SCRIPT = r"""
             });
             mutation.removedNodes.forEach(node => {
                 controlsIn(node).forEach(control => pushUnique(state.removedFields, describe(control), 'xpath'));
+                // Track removed static text content
+                staticElementsIn(node).forEach(el => {
+                    const text = (el.innerText || '').trim();
+                    if (text) {
+                        pushUnique(state.removedTextContent, describeStatic(el), 'xpath');
+                    }
+                });
                 if (node.nodeType === 1) {
                     const row = rowFor(node) || (node.matches('[data-row-index], [data-index], [data-repeater-item], .repeatable-row, .repeater-item, .education-row, .work-row, .employment-row, .experience-row, .array-row, .dynamic-row') ? node : null);
                     if (row) pushUnique(state.rowChanges, { containerXPath: xpath(row), index: row.getAttribute('data-row-index') || row.getAttribute('data-index') || null, rowKey: row.className || null, nowVisible: false }, 'containerXPath');
@@ -243,6 +283,19 @@ class Recorder:
                     launch_options["args"] = [
                         f"--profile-directory={self.profile_directory}"
                     ]
+                
+                # Force Chrome binary path for real Chrome (not Chromium)
+                import platform
+                system = platform.system()
+                chrome_paths = {
+                    "Windows": r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+                    "Darwin": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+                    "Linux": "/usr/bin/google-chrome"
+                }
+                executable_path = chrome_paths.get(system)
+                if executable_path and os.path.isfile(executable_path):
+                    launch_options["executable_path"] = executable_path
+                
                 self.browser = self._playwright.chromium.launch_persistent_context(
                     **launch_options
                 )
