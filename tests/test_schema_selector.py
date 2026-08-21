@@ -24,6 +24,7 @@ class SelectorGenerationTests(unittest.TestCase):
         recorder.last_schema = {
             "fields": [{"xpath": "/html/body/input[1]", "field_key": "email"}]
         }
+        recorder.session_state = None  # Initialize to avoid AttributeError
         recorder._on_event({
             "type": "input", "xpath": "/html/body/input[1]", "value": "private@example.test",
             "text": "private@example.test", "timestamp": 0,

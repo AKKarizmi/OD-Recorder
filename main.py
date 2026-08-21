@@ -36,6 +36,12 @@ def main():
         action="store_true",
         help="With --cleanup-profiles, show what would be deleted without actually deleting"
     )
+    parser.add_argument(
+        "--university-url",
+        type=str,
+        default=None,
+        help="Override the default portal URL with a custom one"
+    )
     args = parser.parse_args()
 
     # Handle profile cleanup command
@@ -50,8 +56,10 @@ def main():
             print(f"\nRemoved {len(removed)} old profile(s)")
         sys.exit(0)
 
-    # Use hardcoded target portal
-    university = TARGET_PORTAL
+    # Use hardcoded target portal or override from command line
+    university = TARGET_PORTAL.copy()
+    if args.university_url:
+        university["portal_url"] = args.university_url
     
     # Validate portal URL domain
     # from urllib.parse import urlparse

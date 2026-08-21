@@ -1,31 +1,22 @@
 """Utility functions for portal recorder."""
 
+from __future__ import annotations
+
+import re
 from typing import Any
 
 
-def get_xpath(element: Any) -> str:
-    """Generate XPath for a DOM element (JavaScript version for injection).
-    
-    This is the JavaScript implementation that should be used in injected scripts.
-    Returns a stable XPath expression for locating the element.
-    """
-    # This function is meant to be used as a template for JS code
-    # The actual implementation is in the injected scripts
-    return """
-    function getXPath(element) {
-        if (!element || !element.parentNode) return '';
-        if (element.id) return '//*[@id="' + element.id.replace(/"/g, '&quot;') + '"]';
-        if (element === document.body) return '/html/body';
-        let index = 0;
-        for (const sibling of element.parentNode.childNodes) {
-            if (sibling === element) {
-                return getXPath(element.parentNode) + '/' + element.tagName.toLowerCase() + '[' + (index + 1) + ']';
-            }
-            if (sibling.nodeType === 1 && sibling.tagName === element.tagName) index++;
-        }
-        return '';
-    }
-    """
+# Pre-compiled regex patterns for performance
+_XPATH_POSITIONAL_PREDICATE_PATTERN = re.compile(r"\[\d+\]")
+_SENSITIVE_INPUT_TYPES = frozenset({"password", "hidden"})
+_SENSITIVE_AUTOCOMPLETE_PATTERNS = frozenset({
+    "password", "current-password", "new-password",
+    "cc-number", "cc-csc", "cc-exp", "cc-exp-month", "cc-exp-year",
+    "transaction-currency", "transaction-amount",
+    "secret", "secret-key", "api-key"
+})
+_SENSITIVE_FIELD_NAMES = frozenset({"password", "passwd", "secret", "token", "apikey", "api_key"})
+_REDACTED_VALUE = "***REDACTED***"
 
 
 def normalize_xpath(xpath: Any) -> str:
@@ -37,9 +28,8 @@ def normalize_xpath(xpath: Any) -> str:
     Returns:
         Normalized XPath with all numeric predicates replaced by empty brackets []
     """
-    import re
     value = str(xpath or "")
-    return re.sub(r"\[\d+\]", "[]", value)
+    return _XPATH_POSITIONAL_PREDICATE_PATTERN.sub("[]", value)
 
 
 def is_sensitive_field(field: dict[str, Any]) -> bool:
@@ -53,28 +43,25 @@ def is_sensitive_field(field: dict[str, Any]) -> bool:
     """
     # Check input type
     input_type = str(field.get("inputType") or field.get("type") or "").lower()
-    if input_type in ("password", "hidden"):
+    if input_type in _SENSITIVE_INPUT_TYPES:
         return True
     
-    # Check autocomplete attributes
-    autocomplete_patterns = [
-        "password", "current-password", "new-password",
-        "cc-number", "cc-csc", "cc-exp", "cc-exp-month", "cc-exp-year",
-        "transaction-currency", "transaction-amount",
-        "secret", "secret-key", "api-key"
-    ]
-    
+    # Check autocomplete attributes and field names/ids
     for attr_name in ("autocomplete", "name", "id"):
         attr_value = str(field.get(attr_name) or "").lower()
-        if any(pattern in attr_value for pattern in autocomplete_patterns):
+        if not attr_value:
+            continue
+        # Check autocomplete patterns
+        if any(pattern in attr_value for pattern in _SENSITIVE_AUTOCOMPLETE_PATTERNS):
+            return True
+        # Check sensitive field names
+        if any(name in attr_value for name in _SENSITIVE_FIELD_NAMES):
             return True
     
-    # Check common sensitive field names
-    sensitive_names = ["password", "passwd", "secret", "token", "apikey", "api_key"]
-    for attr_name in ("name", "id", "label"):
-        attr_value = str(field.get(attr_name) or "").lower()
-        if any(name in attr_value for name in sensitive_names):
-            return True
+    # Check label attribute
+    label_value = str(field.get("label") or "").lower()
+    if any(name in label_value for name in _SENSITIVE_FIELD_NAMES):
+        return True
     
     return False
 
@@ -93,6 +80,6 @@ def mask_sensitive_value(value: str | None, field: dict[str, Any]) -> str | None
         return None
     
     if is_sensitive_field(field):
-        return "***REDACTED***"
+        return _REDACTED_VALUE
     
     return value
