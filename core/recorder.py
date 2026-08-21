@@ -27,6 +27,7 @@ from core.profile_manager import (
     validate_recorder_user_data_dir,
 )
 from core.schema_extractor import extract_form_schema, field_state, get_field_identity
+from core.session_manager import SessionManager, get_session_manager
 
 # Configure module logger
 logger = logging.getLogger(__name__)
@@ -221,6 +222,10 @@ class Recorder:
         self._initial_captured = False
         self._recording_started_at = datetime.now(timezone.utc).isoformat()
         
+        # Session management for cookies, tokens, and state persistence
+        self.session_manager = get_session_manager()
+        self.session_state = None
+        
         # Memory management: circular buffer for DOM changes with max size
         self._max_dom_history = 1000  # Maximum number of DOM change entries per type
         self._dom_change_buffers: dict[str, list[Any]] = {
@@ -234,6 +239,17 @@ class Recorder:
         self._auto_save_interval = 30  # seconds between auto-saves
         self._last_auto_save: float = 0
         self._auto_save_counter = 0  # Track number of auto-saves
+        
+        # Error handling: retry configuration
+        self._max_retries = 3
+        self._retry_delay = 0.5  # seconds between retries
+        
+        # Performance: adaptive polling
+        self._adaptive_poll_enabled = True
+        self._consecutive_no_changes = 0
+        self._current_poll_interval = POLL_INTERVAL
+        self._min_poll_interval = 0.3
+        self._max_poll_interval = 2.0
 
     @staticmethod
     def _resolve_chrome_profile(profile_path, profile_directory=None):
@@ -352,6 +368,18 @@ class Recorder:
 
             self._install_recording_instrumentation()
             self._running = True
+            
+            # Initialize session state for session management
+            self.session_state = self.session_manager.create_session(
+                session_id=self.session_id,
+                university=self.university,
+                category=self.category,
+                base_url=portal_url,
+            )
+            
+            # Extract and store initial cookies and storage
+            self._capture_session_state()
+            
             initial = self._capture_schema("initial_load", "initial_load")
             self._set_baseline(initial)
             self._initial_captured = True
@@ -399,6 +427,7 @@ class Recorder:
         
         Uses the client-side timestamp from JavaScript for event_occurred_at,
         and records when Python received it in recorded_at for debugging.
+        Updates session state with form data for non-sensitive fields.
         """
         event = dict(event_data)
         # Defense in depth: the browser listener avoids values, and this guard
@@ -413,6 +442,11 @@ class Recorder:
         # Record when Python received/dran the event (for debugging latency)
         event["recorded_at"] = datetime.now(timezone.utc).isoformat()
         self.actions.append(event)
+        
+        # Update session form data on user interactions
+        if field_key and self.session_state:
+            # Mark field as interacted with (don't store actual values for privacy)
+            self.session_state.update_form_data(field_key, None, is_sensitive=False)
 
     def _field_key_for_event(self, event: dict[str, Any]) -> str | None:
         """Link an interaction to the latest known schema field when possible."""
@@ -434,6 +468,10 @@ class Recorder:
 
     def _on_navigation(self, frame):
         if self.page is not None and frame == self.page.main_frame and self._initial_captured:
+            # Update session navigation history
+            if self.session_state:
+                self.session_state.add_navigation(frame.url)
+                self.session_manager.persist_session(self.session_id)
             self._schedule_capture("navigation", {"url": frame.url})
 
     @staticmethod
@@ -442,11 +480,21 @@ class Recorder:
         return value[:80] or "unknown"
 
     def _capture_schema(self, step_name, change_type=None, change_details=None):
-        schema = extract_form_schema(self.page, step_name, self.page.url, change_type, change_details)
+        """Capture schema with retry logic for error handling."""
+        schema = self._execute_with_retry(
+            lambda: extract_form_schema(self.page, step_name, self.page.url, change_type, change_details),
+            operation_name=f"capture_schema:{step_name}"
+        )
+        
         filename = f"step_{self.step_counter:02d}_{self._safe_name(step_name)}.json"
         write_json(os.path.join(self.session_dir, filename), schema)
         fields = schema.get("fields", [])
         visible = sum(1 for field in fields if field.get("visible"))
+        
+        # Update session state with form data (non-sensitive only)
+        if self.session_state and fields:
+            self._update_session_form_data(fields)
+        
         print(
             f"[Progress] Step {self.step_counter:02d}: {step_name} | "
             f"change={schema.get('change_type')} | fields={len(fields)} | "
@@ -455,6 +503,10 @@ class Recorder:
         )
         self.step_counter += 1
         self.current_step_name = step_name
+        
+        # Capture session state after schema capture
+        self._capture_session_state()
+        
         return schema
 
     @staticmethod
@@ -471,10 +523,85 @@ class Recorder:
         self.last_fields_set = {identity for identity, _state in self._last_signature}
         self.last_schema = schema
         self._last_url = schema.get("url")
+        
+        # Update session state with current URL
+        if self.session_state and schema.get("url"):
+            self.session_state.current_url = schema["url"]
 
     def _get_field_identity(self, field):
         """Compatibility wrapper for callers using the recorder helper API."""
         return get_field_identity(field)
+    
+    def _execute_with_retry(self, operation, operation_name="operation", max_retries=None, delay=None):
+        """Execute an operation with retry logic for error handling.
+        
+        Args:
+            operation: Callable to execute
+            operation_name: Name for logging purposes
+            max_retries: Maximum number of retries (uses instance default if None)
+            delay: Delay between retries in seconds (uses instance default if None)
+            
+        Returns:
+            Result of the operation or None if all retries failed
+        """
+        max_retries = max_retries if max_retries is not None else self._max_retries
+        delay = delay if delay is not None else self._retry_delay
+        
+        last_exception = None
+        for attempt in range(max_retries + 1):
+            try:
+                return operation()
+            except Exception as exc:
+                last_exception = exc
+                logger.warning(
+                    f"{operation_name} failed (attempt {attempt + 1}/{max_retries + 1}): {exc}"
+                )
+                if attempt < max_retries:
+                    time.sleep(delay)
+        
+        logger.error(f"{operation_name} failed after {max_retries + 1} attempts: {last_exception}")
+        return None
+    
+    def _capture_session_state(self):
+        """Capture cookies, localStorage, and sessionStorage from the page."""
+        if not self.page or not self.session_state:
+            return
+        
+        try:
+            # Extract cookies
+            self.session_manager.extract_cookies_from_playwright(self.page, self.session_id)
+            
+            # Extract storage
+            self.session_manager.extract_storage_from_playwright(self.page, self.session_id)
+            
+            logger.debug(f"Captured session state for {self.session_id}")
+        except Exception as exc:
+            logger.warning(f"Failed to capture session state: {exc}")
+    
+    def _update_session_form_data(self, fields):
+        """Update session form data from schema fields (non-sensitive only).
+        
+        Args:
+            fields: List of field dictionaries from schema
+        """
+        if not self.session_state or not fields:
+            return
+        
+        from core.utils import is_sensitive_field
+        
+        for field in fields:
+            field_key = field.get("field_key")
+            if not field_key:
+                continue
+            
+            # Check if field has a value present
+            if field.get("value_present"):
+                is_sensitive = is_sensitive_field(field)
+                self.session_state.update_form_data(
+                    field_key,
+                    None if is_sensitive else field.get("value"),
+                    is_sensitive=is_sensitive
+                )
 
     def _schedule_capture(self, change_type=None, details=None):
         self._pending_reasons.add(change_type or "dynamic")
@@ -563,12 +690,24 @@ class Recorder:
         """Poll for DOM changes and capture schemas with thread-safe page access.
         
         Implements periodic auto-save to prevent data loss on crashes.
+        Uses adaptive polling to optimize performance based on activity level.
         """
         start_time = time.monotonic()
         while self._running and not self._stop_event.is_set():
             self._drain_events()
             with self._page_lock:  # Thread-safe page access
                 changes = self._consume_observer_changes()
+            
+            has_changes = any([
+                changes["newFields"],
+                changes["removedFields"],
+                changes["visibilityChanges"],
+                changes["panelChanges"],
+                changes["rowChanges"],
+                changes["newTextContent"],
+                changes["removedTextContent"],
+            ])
+            
             if changes["newFields"]:
                 self._schedule_capture("new_fields", {"count": len(changes["newFields"]), "fields": changes["newFields"]})
             if changes["removedFields"]:
@@ -601,7 +740,21 @@ class Recorder:
                 self._save_actions_incremental()
                 self._last_auto_save = elapsed
             
-            self.page.wait_for_timeout(max(1, int(POLL_INTERVAL * 1000)))
+            # Adaptive polling: adjust interval based on activity
+            if self._adaptive_poll_enabled:
+                if has_changes:
+                    # More activity = faster polling
+                    self._consecutive_no_changes = 0
+                    self._current_poll_interval = max(self._min_poll_interval, 
+                                                       self._current_poll_interval * 0.8)
+                else:
+                    # No activity = slower polling to save resources
+                    self._consecutive_no_changes += 1
+                    if self._consecutive_no_changes > 5:
+                        self._current_poll_interval = min(self._max_poll_interval,
+                                                           self._current_poll_interval * 1.1)
+            
+            self.page.wait_for_timeout(max(1, int(self._current_poll_interval * 1000)))
     
     def _save_actions_incremental(self):
         """Save actions incrementally to prevent data loss on crashes.
@@ -687,6 +840,11 @@ class Recorder:
             raise
         finally:
             self._close_runtime()
+        
+        # Persist final session state before closing
+        if self.session_state:
+            self.session_manager.persist_session(self.session_id)
+        
         print(f"Recording saved to {self.session_dir}")
         print(f"Session summary: {len(self.actions)} actions, {self.step_counter} steps, {recording_duration:.1f}s duration")
         if self._auto_save_counter > 0:
