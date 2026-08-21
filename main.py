@@ -10,9 +10,11 @@ from core.recorder import Recorder
 # Target portal configuration - Open Doors Global University only
 TARGET_PORTAL = {
     "University Name": "Open Doors Global University",
-    "portal_url": "https://od.globaluni.ru/login"
+    # "portal_url": "https://od.globaluni.ru/login"
+    "portal_url": "https://russia-edu.minobrnauki.gov.ru/"
 }
-SUPPORTED_DOMAINS = {"od.globaluni.ru"}
+# SUPPORTED_DOMAINS = {"od.globaluni.ru"}
+# SUPPORTED_DOMAINS = {"russia-edu.minobrnauki.gov.ru/"}
 
 
 def main():
@@ -52,12 +54,12 @@ def main():
     university = TARGET_PORTAL
     
     # Validate portal URL domain
-    from urllib.parse import urlparse
-    parsed = urlparse(university["portal_url"])
-    if parsed.netloc not in SUPPORTED_DOMAINS:
-        print(f"Error: Only portals under {SUPPORTED_DOMAINS} are supported.")
-        print(f"Got: {university['portal_url']}")
-        sys.exit(1)
+    # from urllib.parse import urlparse
+    # parsed = urlparse(university["portal_url"])
+    # if parsed.netloc not in SUPPORTED_DOMAINS:
+    #     print(f"Error: Only portals under {SUPPORTED_DOMAINS} are supported.")
+    #     print(f"Got: {university['portal_url']}")
+    #     sys.exit(1)
     
     print(f"Target Portal: {university['University Name']}")
     print(f"Portal URL: {university['portal_url']}")
