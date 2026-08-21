@@ -1,29 +1,209 @@
 # OD-Recorder
 
-Human Interaction Recorder for the Open Doors website. It collects safe form
-metadata and interaction flow to support a separately built autofill system.
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Data policy
+Human Interaction Recorder for university portal websites. Collects safe form metadata and interaction flow to support a separately built autofill system.
 
-New recordings intentionally exclude typed values, password values, hidden
-tokens, and generic page text. They are local operational output and are
-ignored by Git. Existing tracked recordings must be removed from Git tracking
-and reviewed separately before publication.
+## Features
 
-## Recorded metadata
+- **Privacy-First Recording**: Captures form structure, labels, and interactions without storing user-entered values
+- **Dynamic Schema Detection**: Automatically detects form changes, new fields, and visibility updates
+- **Session Management**: Persists cookies, tokens, and browser state across sessions
+- **Multi-Platform**: Supports Windows, macOS, and Linux with Google Chrome
+- **Profile Isolation**: Uses dedicated Chrome profiles to avoid interfering with daily browsing
+- **Auto-Recovery**: Periodic auto-save prevents data loss on crashes
 
-Each schema snapshot contains control labels, IDs/names, type, visibility,
-constraints, autocomplete hints, form information, selected state, and native
-select options. Interaction logs contain event type and field location, but no
-user-entered value.
+## Data Policy
 
-## Run
+**Recordings intentionally exclude:**
+- Typed values (passwords, personal data, etc.)
+- Hidden CSRF tokens and security values  
+- Generic page text content
 
-Install the requirements, ensure Google Chrome is installed, then run:
+Recordings are stored locally as operational output and are ignored by Git.
 
-```powershell
+## Recorded Metadata
+
+Each schema snapshot contains:
+- Control labels, IDs, and names
+- Field types and visibility state
+- Input constraints (min/max length, patterns)
+- Autocomplete hints and aria-labels
+- Form information and selected states
+- Native select dropdown options
+
+Interaction logs contain:
+- Event type (click, input, change, submit)
+- Field location (XPath, CSS selectors)
+- Timestamps (no user-entered values)
+
+## Installation
+
+### Prerequisites
+
+1. **Python 3.10 or higher** - [Download Python](https://www.python.org/downloads/)
+2. **Google Chrome** (stable channel) - [Download Chrome](https://www.google.com/chrome/)
+3. **Playwright** - Installed automatically via pip
+
+### Setup
+
+```bash
+# Clone or navigate to the repository
+cd /path/to/od-recorder
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Install Playwright browsers
+playwright install chromium
+```
+
+## Usage
+
+### Basic Recording
+
+```bash
 python main.py
 ```
 
-The recorder opens an isolated Chrome profile. Log in and navigate before
-pressing Enter to begin; those preparatory actions are not recorded.
+The recorder will:
+1. Display available recording categories
+2. Open an isolated Chrome profile
+3. Prompt you to log in and navigate to the target section
+4. Begin recording after you press Enter
+
+### Command-Line Options
+
+```bash
+# Start recording with default settings
+python main.py
+
+# Use a custom portal URL
+python main.py --university-url "https://example.edu/portal"
+
+# Clean up old browser profiles (older than 30 days)
+python main.py --cleanup-profiles
+
+# Preview what would be deleted (dry run)
+python main.py --cleanup-profiles --dry-run
+
+# Remove profiles older than 60 days
+python main.py --cleanup-profiles --older-than 60
+```
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORTAL_BROWSER_CHANNEL` | Chrome channel (`chrome`, `chrome-beta`) | `chrome` |
+| `PORTAL_HEADLESS` | Run browser in headless mode | Auto-detect |
+| `PORTAL_RECORDER_USER_DATA_DIR` | Custom profile directory path | Platform-specific |
+| `CI` | CI environment flag (enables headless) | `false` |
+
+## Output Structure
+
+Recordings are saved to `recordings/sessions/<category>/<university>_<session_id>/`:
+
+```
+recordings/sessions/
+└── Registration/
+    └── Open_Doors_Global_University_a1b2c3d4/
+        ├── actions.json          # Interaction event log
+        ├── step_00_initial_load.json
+        ├── step_01_nav_1.json
+        ├── step_02_dynamic_2.json
+        └── ...                   # Schema snapshots per step
+```
+
+### Actions JSON Format
+
+```json
+{
+  "session_id": "a1b2c3d4",
+  "category": "Registration",
+  "university": {"University Name": "...", "portal_url": "..."},
+  "start_time": "2024-01-15T10:30:00+00:00",
+  "end_time": "2024-01-15T10:35:00+00:00",
+  "recording_duration_seconds": 300,
+  "total_actions": 42,
+  "total_steps": 8,
+  "actions": [
+    {
+      "type": "click",
+      "tag": "BUTTON",
+      "id": "submit-btn",
+      "xpath": "//button[@id=\"submit-btn\"]",
+      "event_occurred_at": 1705315800123,
+      "recorded_at": "2024-01-15T10:30:00.123+00:00"
+    }
+  ]
+}
+```
+
+## Configuration
+
+Create a `config.json` file for custom settings:
+
+```json
+{
+  "categories": ["AUTH", "Registration", "Application", "Data Entry"],
+  "browser_channel": "chrome",
+  "headless": false
+}
+```
+
+## Security Considerations
+
+- Sensitive fields (passwords, credit cards, API keys) are automatically redacted
+- Session tokens and cookies are encrypted at rest
+- Profile directories use restrictive permissions (0o700)
+- No data is transmitted externally - all recordings are local
+
+## Troubleshooting
+
+### "Could not open the dedicated Recorder Chrome profile"
+
+- Close any other Chrome windows using the Recorder profile
+- Ensure no other Recorder instance is running
+- Try cleaning up old profiles: `python main.py --cleanup-profiles`
+
+### "Navigation timed out"
+
+- The portal may be slow to respond; the browser remains open for manual inspection
+- Check your network connection
+- Verify the portal URL is accessible
+
+### Browser doesn't launch
+
+- Ensure Google Chrome (not Chromium) is installed
+- On Linux: `sudo apt install google-chrome-stable`
+- On macOS: Download from [google.com/chrome](https://www.google.com/chrome/)
+- On Windows: Install from the official Chrome installer
+
+## Development
+
+### Running Tests
+
+```bash
+pytest tests/
+```
+
+### Code Style
+
+This project follows PEP 8 guidelines. Type hints are used throughout.
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request with tests
+
+---
+
+**Note**: This tool is designed for educational and testing purposes. Always obtain proper authorization before recording interactions with any website.
