@@ -1,0 +1,419 @@
+{
+  "schema_version": 2,
+  "step": "nav_99",
+  "change_type": "navigation",
+  "url": "https://od.globaluni.ru/quiz/attempt/912522/finish",
+  "fields": [
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Testing is underway:\n\n00:31:31\nBiology and Biotechnology\nComplete the test?\n\nAnswered 90 from 90\n\nComplete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": "app",
+      "xpath": "//*[@id=\"app\"]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-page": "{\"component\":\"Quiz\\/Solve\",\"props\":{\"errors\":{},\"auth\":{\"user\":{\"id\":387948,\"name\":\"Sadiqi Attaullah\",\"email\":\"globalaitest@gmail.com\",\"email_verified_at\":null,\"locale\":\"en\",\"mailings\":true,\"accepted_policy_at\":null,\"created_at\":\"2026-08-20T09:01:29.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"ym_client_id\":\"1785231473194281264\",\"deleted_at\":null,\"display_name\":\"Sadiqi Attaullah\",\"permissions\":[],\"is_participant\":true,\"admin\":null,\"participant\":{\"id\":380950,\"season\":\"2026\",\"user_id\":387948,\"citizenship_id\":33,\"last_name\":\"Sadiqi\",\"first_name\":\"Attaullah\",\"sex\":\"m\",\"birthdate\":\"2002-08-21T00:00:00.000000Z\",\"phone\":\"+93788799333\",\"stage_2_ready\":false,\"stage_video_ready\":false,\"document_type\":null,\"document_number\":null,\"passport_expires_at\":null,\"stage_1_ready\":false,\"ban_date\":null,\"ban_type\":null,\"created_at\":\"2026-08-20T09:01:29.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null,\"season_name\":\"2026\",\"is_actual_season\":true}}},\"show_emails\":false,\"csrf_token\":\"VFPNL412vAMeiGu8t3wMzigcKQGI69MV3sX0IYI6\",\"locale\":\"en\",\"sidebar\":[{\"key\":\"participant\",\"label\":\"General information\",\"i\":\"fa fa-user\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/me\"},{\"key\":\"passport\",\"label\":\"Identity verification information\",\"i\":\"fa-solid fa-passport\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/passport\"},{\"key\":\"universities\",\"label\":\"Universities\",\"i\":\"fa-solid fa-building-columns\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/universities\"},{\"key\":\"stage-1\",\"label\":\"First stage\",\"i\":\"fa-solid fa-list-check\",\"items\":[{\"key\":\"portfolio\",\"label\":\"Portfolio\",\"i\":\"fa fa-briefcase\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/portfolio\"},{\"key\":\"degree\",\"label\":\"Education\",\"i\":\"fa-solid fa-graduation-cap\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/degree\"},{\"key\":\"statement\",\"label\":\"Motivation letter\",\"i\":\"fa fa-feather\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/statement\"},{\"key\":\"achievement\",\"label\":\"Achievements\",\"i\":\"fa fa-trophy\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/achievement\"},{\"key\":\"entrance-test\",\"label\":\"Entry test\",\"i\":\"fa fa-clipboard-check\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/entrance-test\"}]},{\"key\":\"poll\",\"label\":\"Polls\",\"i\":\"fa fa-square-poll-horizontal\",\"href\":\"https:\\/\\/od.globaluni.ru\\/lk\\/poll\"}],\"message\":null,\"tab\":null,\"utc_offset\":3,\"policy_accepted\":true,\"policy_widget\":{\"policy_participant_name\":\", Sadiqi Attaullah, \"},\"time\":1787228696,\"auto_finish\":true,\"attempt\":{\"id\":912522,\"quiz_id\":445,\"participant_id\":380950,\"timeslot_id\":null,\"locale\":\"en\",\"score\":null,\"result\":null,\"started_at\":\"2026-08-20T11:24:56.000000Z\",\"extra_started_at\":null,\"available_till\":\"2026-08-20T12:24:56.000000Z\",\"completed_at\":null,\"verified_at\":null,\"manual_count\":0,\"manual_assigned_count\":0,\"manual_verified_count\":0,\"canceled\":0,\"annulled\":0,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:56.000000Z\",\"deleted_at\":null,\"has_extra_questions\":false,\"quiz_name\":\"Biology and Biotechnology\",\"question_count\":90,\"answers\":[{\"id\":30143636,\"attempt_id\":912522,\"question_id\":49072,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143637,\"attempt_id\":912522,\"question_id\":49081,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143638,\"attempt_id\":912522,\"question_id\":49082,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143639,\"attempt_id\":912522,\"question_id\":49089,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143640,\"attempt_id\":912522,\"question_id\":49096,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143641,\"attempt_id\":912522,\"question_id\":49103,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143642,\"attempt_id\":912522,\"question_id\":49109,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143643,\"attempt_id\":912522,\"question_id\":49113,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143644,\"attempt_id\":912522,\"question_id\":49119,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143645,\"attempt_id\":912522,\"question_id\":49128,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143646,\"attempt_id\":912522,\"question_id\":49130,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143647,\"attempt_id\":912522,\"question_id\":49140,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143648,\"attempt_id\":912522,\"question_id\":49146,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143649,\"attempt_id\":912522,\"question_id\":49152,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143650,\"attempt_id\":912522,\"question_id\":49155,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143651,\"attempt_id\":912522,\"question_id\":49162,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143652,\"attempt_id\":912522,\"question_id\":49167,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143653,\"attempt_id\":912522,\"question_id\":49177,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143654,\"attempt_id\":912522,\"question_id\":49183,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143655,\"attempt_id\":912522,\"question_id\":49186,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143656,\"attempt_id\":912522,\"question_id\":49194,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143657,\"attempt_id\":912522,\"question_id\":49196,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143658,\"attempt_id\":912522,\"question_id\":49202,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143659,\"attempt_id\":912522,\"question_id\":49212,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143660,\"attempt_id\":912522,\"question_id\":49214,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143661,\"attempt_id\":912522,\"question_id\":49225,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143662,\"attempt_id\":912522,\"question_id\":49231,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143663,\"attempt_id\":912522,\"question_id\":49233,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143664,\"attempt_id\":912522,\"question_id\":49241,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143665,\"attempt_id\":912522,\"question_id\":49245,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143666,\"attempt_id\":912522,\"question_id\":49254,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143667,\"attempt_id\":912522,\"question_id\":49261,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143668,\"attempt_id\":912522,\"question_id\":49265,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143669,\"attempt_id\":912522,\"question_id\":49273,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143670,\"attempt_id\":912522,\"question_id\":49278,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143671,\"attempt_id\":912522,\"question_id\":49284,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143672,\"attempt_id\":912522,\"question_id\":49287,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143673,\"attempt_id\":912522,\"question_id\":49294,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143674,\"attempt_id\":912522,\"question_id\":49303,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143675,\"attempt_id\":912522,\"question_id\":49308,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143676,\"attempt_id\":912522,\"question_id\":49313,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143677,\"attempt_id\":912522,\"question_id\":49317,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143678,\"attempt_id\":912522,\"question_id\":49325,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143679,\"attempt_id\":912522,\"question_id\":49329,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143680,\"attempt_id\":912522,\"question_id\":49339,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143681,\"attempt_id\":912522,\"question_id\":60191,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143682,\"attempt_id\":912522,\"question_id\":60183,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143683,\"attempt_id\":912522,\"question_id\":60176,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143684,\"attempt_id\":912522,\"question_id\":60168,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143685,\"attempt_id\":912522,\"question_id\":60163,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143686,\"attempt_id\":912522,\"question_id\":60211,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143687,\"attempt_id\":912522,\"question_id\":60225,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143688,\"attempt_id\":912522,\"question_id\":60231,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143689,\"attempt_id\":912522,\"question_id\":60241,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143690,\"attempt_id\":912522,\"question_id\":60247,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143691,\"attempt_id\":912522,\"question_id\":60537,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143692,\"attempt_id\":912522,\"question_id\":60615,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143693,\"attempt_id\":912522,\"question_id\":61624,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143694,\"attempt_id\":912522,\"question_id\":61546,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143695,\"attempt_id\":912522,\"question_id\":61538,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143696,\"attempt_id\":912522,\"question_id\":61527,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143697,\"attempt_id\":912522,\"question_id\":60263,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143698,\"attempt_id\":912522,\"question_id\":60257,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143699,\"attempt_id\":912522,\"question_id\":60316,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143700,\"attempt_id\":912522,\"question_id\":60310,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143701,\"attempt_id\":912522,\"question_id\":60204,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143702,\"attempt_id\":912522,\"question_id\":60192,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143703,\"attempt_id\":912522,\"question_id\":60203,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143704,\"attempt_id\":912522,\"question_id\":60328,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143705,\"attempt_id\":912522,\"question_id\":61560,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143706,\"attempt_id\":912522,\"question_id\":61639,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143707,\"attempt_id\":912522,\"question_id\":61619,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143708,\"attempt_id\":912522,\"question_id\":61596,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143709,\"attempt_id\":912522,\"question_id\":61582,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143710,\"attempt_id\":912522,\"question_id\":61577,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143711,\"attempt_id\":912522,\"question_id\":61571,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143712,\"attempt_id\":912522,\"question_id\":61566,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143713,\"attempt_id\":912522,\"question_id\":60728,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143714,\"attempt_id\":912522,\"question_id\":60736,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143715,\"attempt_id\":912522,\"question_id\":60738,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143716,\"attempt_id\":912522,\"question_id\":60747,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143717,\"attempt_id\":912522,\"question_id\":60751,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143718,\"attempt_id\":912522,\"question_id\":61482,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143719,\"attempt_id\":912522,\"question_id\":61505,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143720,\"attempt_id\":912522,\"question_id\":61499,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143721,\"attempt_id\":912522,\"question_id\":61496,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143722,\"attempt_id\":912522,\"question_id\":61489,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143723,\"attempt_id\":912522,\"question_id\":60768,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143724,\"attempt_id\":912522,\"question_id\":60762,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null},{\"id\":30143725,\"attempt_id\":912522,\"question_id\":60620,\"solution\":null,\"score\":null,\"verifier_comment\":null,\"bad_uploads\":false,\"result\":null,\"showed_at\":null,\"solved_at\":null,\"verifier_id\":null,\"verifier_assigned_at\":null,\"verified_at\":null,\"created_at\":\"2026-08-20T11:24:55.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null}],\"participant\":{\"id\":380950,\"season\":\"2026\",\"user_id\":387948,\"citizenship_id\":33,\"last_name\":\"Sadiqi\",\"first_name\":\"Attaullah\",\"sex\":\"m\",\"birthdate\":\"2002-08-21T00:00:00.000000Z\",\"phone\":\"+93788799333\",\"stage_2_ready\":false,\"stage_video_ready\":false,\"document_type\":null,\"document_number\":null,\"passport_expires_at\":null,\"stage_1_ready\":false,\"ban_date\":null,\"ban_type\":null,\"created_at\":\"2026-08-20T09:01:29.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"deleted_at\":null,\"season_name\":\"2026\",\"is_actual_season\":true,\"user\":{\"id\":387948,\"name\":\"Sadiqi Attaullah\",\"email\":\"globalaitest@gmail.com\",\"email_verified_at\":null,\"locale\":\"en\",\"mailings\":true,\"accepted_policy_at\":null,\"created_at\":\"2026-08-20T09:01:29.000000Z\",\"updated_at\":\"2026-08-20T11:24:55.000000Z\",\"ym_client_id\":\"1785231473194281264\",\"deleted_at\":null,\"display_name\":\"Sadiqi Attaullah\"}},\"quiz\":{\"id\":445,\"season\":\"2026\",\"profile_id\":45,\"track\":\"b\",\"stage\":\"1\",\"actual_quiz_id\":null,\"name\":\"\\u0411\\u0438\\u0411. \\u0411\\u0430\\u043a. \\u0412\\u0422. 2026\",\"mode\":\"blocked\",\"created_at\":\"2026-05-08T14:49:44.000000Z\",\"updated_at\":\"2026-07-09T07:11:19.000000Z\",\"deleted_at\":null,\"season_name\":\"2026\",\"is_actual_season\":true,\"profile\":{\"id\":45,\"order\":1,\"status\":\"active\",\"coordinator_id\":null,\"short_name\":\"\\u0411\\u0438\\u0411\",\"name\":\"Biology and Biotechnology\",\"icon\":\"_2.svg\",\"created_at\":\"2024-07-01T09:50:24.000000Z\",\"updated_at\":\"2026-08-12T23:41:31.000000Z\",\"deleted_at\":null}}},\"profile_name\":\"Biology and Biotechnology\",\"answers\":[{\"id\":30143636,\"showed_at\":\"2026-08-20T11:24:56.000000Z\",\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143637,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143638,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143639,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143640,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143641,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143642,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143643,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143644,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143645,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143646,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143647,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143648,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143649,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143650,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143651,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143652,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143653,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143654,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143655,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143656,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143657,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143658,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143659,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143660,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143661,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143662,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143663,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143664,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143665,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143666,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143667,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143668,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143669,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143670,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143671,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143672,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143673,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143674,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143675,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143676,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143677,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143678,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143679,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143680,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143681,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143682,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143683,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143684,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143685,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143686,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143687,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143688,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143689,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143690,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143691,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143692,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143693,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143694,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143695,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143696,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143697,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143698,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143699,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143700,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143701,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143702,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143703,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143704,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143705,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143706,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143707,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143708,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143709,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143710,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143711,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143712,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143713,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143714,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143715,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143716,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143717,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143718,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143719,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143720,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143721,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143722,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143723,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143724,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0},{\"id\":30143725,\"showed_at\":null,\"solved_at\":null,\"solution\":null,\"is_extra\":0}],\"question\":{\"id\":49072,\"quiz_id\":445,\"group_id\":9952,\"status\":\"active\",\"expert_status\":\"approved\",\"tech_status\":\"approved\",\"expert_2_status\":\"approved\",\"correction_status\":null,\"type\":\"one\",\"text\":\"<p><span>How do the anterior and posterior roots of spinal nerves differ?<\\/span><\\/p>\",\"description\":null,\"options\":{\"options\":[{\"text\":\"<p><span>Anterior roots are sensory, posterior roots are motor<\\/span><\\/p>\"},{\"text\":\"<p><span>Anterior roots are motor, posterior roots are sensory<\\/span><\\/p>\"},{\"text\":\"<p><span>Anterior roots are formed by axons, posterior roots by dendrites<\\/span><\\/p>\"},{\"text\":\"<p><span>Anterior roots are located in the thoracic region, posterior roots in the lumbar region<\\/span><\\/p>\"},{\"text\":\"<p><span>There are no differences, they are the same<\\/span><\\/p>\"},{\"text\":\"<p><span>Anterior roots are thinner than posterior roots<\\/span><\\/p>\"}]},\"author_id\":147629,\"origin_id\":null,\"created_at\":\"2026-05-08T14:49:45.000000Z\",\"updated_at\":\"2026-06-25T11:19:35.000000Z\",\"deleted_at\":null,\"images\":[]},\"answer\":{\"id\":30143636,\"showed_at\":\"2026-08-20T11:24:56.000000Z\",\"solved_at\":null,\"solution\":null,\"attachments\":[],\"is_extra\":0},\"widget\":{\"extra_button\":\"Finalize completion of written tasks\",\"extra_description\":\"\\n                    <h1>Oral-response task<\\/h1>\\n                    <p>The oral-response task is related to one of the written-response tasks, \\u2116 41-43.<\\/p>\\n                    <p>You have three minutes to select one of the written tasks \\u2116 41-43 and familiarise yourself with the oral-response task. Then you have two minutes to give your answer to the oral response task.<\\/p>\\n                    <p><strong>Select one task.<\\/strong><\\/p>\\n                    <p>You may select either a task for which you have provided a written response or a task for which no written response has been provided. In the latter case, the score for the oral response will not be taken into account in the final assessment of the Second stage of the Open Doors.<\\/p>\",\"main_finish_description\":\"<p>After completing the tasks with a written answer, you will begin to complete the task with an oral answer<\\/p>\",\"type_descriptions_speech\":\"<p>Familiarise yourself with the oral-response task. After clicking the\\n                    \\u201cStart oral response\\u201d button, you will have two minutes to give your answer.\\n                    <strong>Please begin by reading the task text aloud.<\\/strong>\\n                    If you do not complete the recording by the end of the two minutes\\n                    allocated for the oral response, it will be terminated automatically.<\\/p>\",\"extra_question_not_available\":\"The oral-response task will be available after completion of the written-response tasks.\"}},\"url\":\"\\/quiz\\/solve\\/30143636\",\"version\":\"adminc532dd8cae5e82501568f0ad64a0623a\"}",
+        "data-v-app": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Testing is underway:\n\n00:31:31\nBiology and Biotechnology\nComplete the test?\n\nAnswered 90 from 90\n\nComplete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "lay-wrapper",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"app\"]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Testing is underway:\n\n00:31:31\nBiology and Biotechnology",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "solve-page-title",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Testing is underway:\n\n00:31:31",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "to-left",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Testing is underway:\n\n00:31:31",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "p",
+      "textContent": "Testing is underway:",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]/div[1]/p[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]/p[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "00:31:31",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "countdown",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Biology and Biotechnology",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[2]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Biology and Biotechnology",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[2]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/h1[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[3]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "to-right",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Complete the test?\n\nAnswered 90 from 90\n\nComplete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "solve-page-main finish",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Complete the test?\n\nAnswered 90 from 90\n\nComplete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "block",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Complete the test?",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/h1[]"
+    },
+    {
+      "type": "static",
+      "tag": "p",
+      "textContent": "Answered 90 from 90",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]/p[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/p[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "Complete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "buttons-wrapper",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]"
+    },
+    {
+      "type": "static",
+      "tag": "a",
+      "textContent": "Complete",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]/div[1]/a[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "btn btn-primary",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]/a[]"
+    },
+    {
+      "type": "static",
+      "tag": "i",
+      "textContent": "",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[2]/div[1]/div[1]/a[1]/i[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "fa fa-check",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {
+        "data-v-d5fcf4b7": ""
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/div[]/div[]/a[]/i[]"
+    },
+    {
+      "type": "static",
+      "tag": "div",
+      "textContent": "",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": "bar",
+      "id": null,
+      "xpath": "//*[@id=\"nprogress\"]/div[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "bar",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"nprogress\"]/div[]"
+    }
+  ],
+  "timestamp": 1787226804977,
+  "change_details": {
+    "url": "https://od.globaluni.ru/quiz/attempt/912522/finish",
+    "changes": [
+      {
+        "xpath": "//*[@id=\"app\"]",
+        "id": "app",
+        "tag": "DIV",
+        "textContent": "Testing is underway:\n\n00:31:32\nBiology and Biotechnology\nComplete the test?\n\nAnswered 90 from 90\n\nComplete",
+        "className": "",
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]",
+        "id": null,
+        "tag": "DIV",
+        "textContent": "Testing is underway:\n\n00:31:32\nBiology and Biotechnology\nComplete the test?\n\nAnswered 90 from 90\n\nComplete",
+        "className": "lay-wrapper",
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]",
+        "id": null,
+        "tag": "DIV",
+        "textContent": "Testing is underway:\n\n00:31:32\nBiology and Biotechnology",
+        "className": "solve-page-title",
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]",
+        "id": null,
+        "tag": "DIV",
+        "textContent": "Testing is underway:\n\n00:31:32",
+        "className": "to-left",
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]/div[1]",
+        "id": null,
+        "tag": "DIV",
+        "textContent": "Testing is underway:\n\n00:31:32",
+        "className": "",
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]",
+        "id": null,
+        "tag": "DIV",
+        "textContent": "00:31:32",
+        "className": "countdown",
+        "nowVisible": true
+      }
+    ]
+  }
+}

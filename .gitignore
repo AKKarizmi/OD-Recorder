@@ -9,4 +9,4 @@ venv/
 
 # Recorder output may contain portal and personal data. Keep only deliberately
 # sanitised fixtures outside this directory.
-recordings/
+# recordings/
