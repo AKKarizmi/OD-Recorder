@@ -1,0 +1,113 @@
+{
+  "schema_version": 3,
+  "step": "nav_17",
+  "change_type": "navigation",
+  "url": "https://od.globaluni.ru/lk/achievement/create",
+  "fields": [
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": null,
+      "id": null,
+      "label": "Select option",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": "off",
+      "placeholder": "Select option",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "name": "",
+        "type": "text",
+        "autocomplete": "off",
+        "spellcheck": "false",
+        "placeholder": "Select option",
+        "tabindex": "0",
+        "class": "multiselect__input",
+        "aria-controls": "listbox-null",
+        "value": "",
+        "style": "width: 0px; position: absolute; padding: 0px;"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|input|text|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]|select option",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "input.multiselect__input[aria-label*=\"Select option\"]",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Achievements",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]",
+      "field_key": "main|h1||xpath://*[@id=\"app\"]/div[]/main[]/div[]/h1[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "h1",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]"
+      }
+    }
+  ],
+  "timestamp": 1787310570241,
+  "change_details": {
+    "url": "https://od.globaluni.ru/lk/achievement/create",
+    "changes": [
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+        "id": null,
+        "tag": "H1",
+        "textContent": "Achievements",
+        "className": "",
+        "nowVisible": true
+      }
+    ],
+    "new_text": [],
+    "removed_text": [
+      {
+        "xpath": "/main[1]/div[1]/h1[1]",
+        "id": null,
+        "tag": "H1",
+        "textContent": "Achievements",
+        "className": ""
+      }
+    ]
+  }
+}

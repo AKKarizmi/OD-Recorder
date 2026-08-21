@@ -1,0 +1,57 @@
+{
+  "schema_version": 3,
+  "step": "nav_14",
+  "change_type": "navigation",
+  "url": "https://od.globaluni.ru/lk/statement",
+  "fields": [
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Motivation letter",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]",
+      "field_key": "main|h1||xpath://*[@id=\"app\"]/div[]/main[]/div[]/h1[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "h1",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]"
+      }
+    }
+  ],
+  "timestamp": 1787310534547,
+  "change_details": {
+    "url": "https://od.globaluni.ru/lk/statement",
+    "new_text": [
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+        "id": null,
+        "tag": "H1",
+        "textContent": "Motivation letter",
+        "className": ""
+      }
+    ],
+    "removed_text": [],
+    "changes": [
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+        "id": null,
+        "tag": "H1",
+        "textContent": "Motivation letter",
+        "className": "",
+        "nowVisible": true
+      }
+    ]
+  }
+}

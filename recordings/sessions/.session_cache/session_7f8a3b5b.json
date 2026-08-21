@@ -1,0 +1,437 @@
+{
+  "session_id": "7f8a3b5b",
+  "university": {
+    "University Name": "Open Doors Global University",
+    "portal_url": "https://od.globaluni.ru"
+  },
+  "category": "Registration",
+  "base_url": "https://od.globaluni.ru",
+  "current_url": "https://od.globaluni.ru/lk/entrance-test",
+  "tokens": [
+    {
+      "name": "XSRF-TOKEN",
+      "value": "eyJpdiI6IlVFTC9oaVh4OENxaXdRY0lyWE52U2c9PSIsInZhbHVlIjoiekxQemQvWWxVVUtQWmx1b0I5eC95Qk40dy9sc1oyN1o2RjR4NVI0WGJ1N2EzWENkVUZQcjNSWG1aSmxuOE9ZY20vS2hJTXI4OW9nRm5FUy9wdmJhdW4xV0FWSGJhT3IzUWVQYnZyS2Y4VEZXc3lFdzY4dEVTK0NON1g3dUJwVGEiLCJtYWMiOiI5MDZjZTJlYTJmMWY5ZDBhODgwODVlNDMzMWI2ODZiYzE3NmZjMTNjZDY2Y2RhZWE4YTczMGMyNDI2NTRjNGQ0IiwidGFnIjoiIn0%3D",
+      "domain": "russia-edu.minobrnauki.gov.ru",
+      "path": "/",
+      "expires": 1787316979.909753,
+      "http_only": false,
+      "secure": true,
+      "same_site": "Lax",
+      "created_at": 1787310589.665767
+    },
+    {
+      "name": "russia_edu_session",
+      "value": "eyJpdiI6IlplWFl0S28wbzVsWTlMMFNjZVdGSEE9PSIsInZhbHVlIjoiVlB0RW1ES0UrSDk0aGttQzA0Zkh2ZGtBM2RUUlBDaVFZb1BBOVNBQWNKWjVyTnpBQ0JUbG1VZ3lhQkNXMW9YYjBkTVZsSzB6a3pvUno5aG12OUt5ZW96Yno0am43aFVTczRUNDVDQUkzKzJUbkVjVGFaVUdteGQvUnhIUUNKWWoiLCJtYWMiOiIyMjljNDhiYWZiNTU2MGM3YzM4MjEwYjdlMDdjMGQ4ZDg1ZjgzOWRiYjk1OTE3YjMzZDkzZDZiZGE4ZTVhNjY5IiwidGFnIjoiIn0%3D",
+      "domain": "russia-edu.minobrnauki.gov.ru",
+      "path": "/",
+      "expires": 1787316979.909863,
+      "http_only": true,
+      "secure": true,
+      "same_site": "Lax",
+      "created_at": 1787310589.665767
+    },
+    {
+      "name": "XSRF-TOKEN",
+      "value": "eyJpdiI6Ik9zbW1aVmVzWDkzREFJM25qN2JDTkE9PSIsInZhbHVlIjoiWmpFL1ZiN1lqS1NFTVl5THBON1VUVytNWGxtSFVwakQwNStLLy9DekFZTG5JWXlzSFRzbkFvUzB1K2YrcUVJeHlaU0d3dEtoazBONDJUYmN1b0NNRU0yTWtvSGJWTk5SMkpCakRnTStPNjB1dnh2QXZYSjltVWJFOEhkNnNoakYiLCJtYWMiOiI2Y2QzZDU3ZGU1YmJkYzIyZmQ3MTg5OGEwMGU3NDdiMjVjZjZmMjNkODU2NGFhNDE4MDhiZjZiNTk1ODJiNTM5IiwidGFnIjoiIn0%3D",
+      "domain": "od.globaluni.ru",
+      "path": "/",
+      "expires": 1787317787.410467,
+      "http_only": false,
+      "secure": true,
+      "same_site": "None",
+      "created_at": 1787310589.665767
+    },
+    {
+      "name": "opendoors_session",
+      "value": "eyJpdiI6IjNXbEtaZVBlQXBjd3lKditEMFVFNGc9PSIsInZhbHVlIjoiVFVINnNoeENrSWJjMlpnVEViQ0o5Q2RESlpjTHpnZHo4alBad0F0VU1qVVdRTTR6UDlWSDlId3NEM3NXNXFOeExBYng4dndNZUt3VEJYRlc1RVNhOUZLNGZUZWszMUlSZFpSSDBMZDRvNXZBWEZoYnV2RCtkbTF3eGxJeStOVisiLCJtYWMiOiI5YmUyOWEyNWY3ODBkNDY0OWViYWQ5NTczMGRkMDVkZDFiZGM2YjM2NjQyMGJmYzcyMGIxOGQ4YTk1ZGFkYzdkIiwidGFnIjoiIn0%3D",
+      "domain": "od.globaluni.ru",
+      "path": "/",
+      "expires": 1787317787.410822,
+      "http_only": true,
+      "secure": true,
+      "same_site": "None",
+      "created_at": 1787310589.665767
+    }
+  ],
+  "cookies": {
+    "_ym_uid": {
+      "value": "178722253150658262",
+      "domain": ".globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "_ym_d": {
+      "value": "1787222531",
+      "domain": ".globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "i": {
+      "value": "be7ad579-b747-45e0-a79e-2200c9cd4fa8|1787222544",
+      "domain": ".openx.net",
+      "timestamp": 1787310589.665767
+    },
+    "yandexuid": {
+      "value": "9985189031787222532",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "yuidss": {
+      "value": "9985189031787222532",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "ymex": {
+      "value": "2102582532.yrts.1787222532#2102582532.yrtsi.1787222532",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "receive-cookie-deprecation": {
+      "value": "1",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "cookie_policy_accepted": {
+      "value": "1",
+      "domain": "od.globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "vid": {
+      "value": "b9db7494217589095643",
+      "domain": ".hybrid.ai",
+      "timestamp": 1787310589.665767
+    },
+    "pi": {
+      "value": "ShWaQM/ftjoow6+rNZ5yozTREtrgozZrVrefjyrTO6X+esIrWOUmJwWnPOOhHod24VA81hTalJB95//+Yt8dCeKCjvI=",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "yashr": {
+      "value": "710951111787222537",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "SCM": {
+      "value": "5ace5a72e5",
+      "domain": ".smaato.net",
+      "timestamp": 1787310589.665767
+    },
+    "SCM1119": {
+      "value": "5ace5a72e5",
+      "domain": ".smaato.net",
+      "timestamp": 1787310589.665767
+    },
+    "SCMmf": {
+      "value": "5ace5a72e5",
+      "domain": ".smaato.net",
+      "timestamp": 1787310589.665767
+    },
+    "uuid": {
+      "value": "560334d9-88f6-41ab-6c13-5f6b2f683c89",
+      "domain": ".buzzoola.com",
+      "timestamp": 1787310589.665767
+    },
+    "XANDR_PANID": {
+      "value": "3BI-KK38QMycGiPljPTj07gxvEs71TP8i_ImB0DrTsEaK4_mQi3UM88DC8qVOcmsZaWMELmGKH-3YRPxvqgWwlcQnFRZZ-rhyNy9KFK9gwg.",
+      "domain": ".adnxs.com",
+      "timestamp": 1787310589.665767
+    },
+    "uuid2": {
+      "value": "8085107473884782182",
+      "domain": ".adnxs.com",
+      "timestamp": 1787310589.665767
+    },
+    "anj": {
+      "value": "dTM7k!M4/YEVNsVF']wIg2GVGeS9Qt!]tbPl1Mi1Q.uY(=0mZ:00Awaidx8Vlxo6mcxceZe+uIfUN$Cq/X%W#.wL4W1Qw2!5aH8V",
+      "domain": ".adnxs.com",
+      "timestamp": 1787310589.665767
+    },
+    "__upin": {
+      "value": "oeAg1ZRGn2QDn7+oFQ+prw",
+      "domain": ".aidata.io",
+      "timestamp": 1787310589.665767
+    },
+    "__upints": {
+      "value": "1787222546",
+      "domain": ".aidata.io",
+      "timestamp": 1787310589.665767
+    },
+    "AFFICHE_W": {
+      "value": "2lTLt7-O62Pa40",
+      "domain": ".weborama-tech.ru",
+      "timestamp": 1787310589.665767
+    },
+    "am-uid": {
+      "value": "35c3168d3faf4cb9a032dfcb3b39c341",
+      "domain": ".admixer.net",
+      "timestamp": 1787310589.665767
+    },
+    "sm_uid": {
+      "value": "sm_TKh_seV1aqrN",
+      "domain": ".ck.silvermob.com",
+      "timestamp": 1787310589.665767
+    },
+    "CID": {
+      "value": "65eb8820f65bcb2c63e69fa39890f156",
+      "domain": ".us.ck-ie.com",
+      "timestamp": 1787310589.665767
+    },
+    "cookie": {
+      "value": "e01fa060b994be0d",
+      "domain": ".onaudience.com",
+      "timestamp": 1787310589.665767
+    },
+    "_yasc": {
+      "value": "PdWoSsg4B6mBRJ9nM2bq46BGAm4xWNukMfDDC+djfQ/PVIbHxj/gaSwFezL4+mzQ5k34r1hV",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "XSRF-TOKEN": {
+      "value": "eyJpdiI6Ik9zbW1aVmVzWDkzREFJM25qN2JDTkE9PSIsInZhbHVlIjoiWmpFL1ZiN1lqS1NFTVl5THBON1VUVytNWGxtSFVwakQwNStLLy9DekFZTG5JWXlzSFRzbkFvUzB1K2YrcUVJeHlaU0d3dEtoazBONDJUYmN1b0NNRU0yTWtvSGJWTk5SMkpCakRnTStPNjB1dnh2QXZYSjltVWJFOEhkNnNoakYiLCJtYWMiOiI2Y2QzZDU3ZGU1YmJkYzIyZmQ3MTg5OGEwMGU3NDdiMjVjZjZmMjNkODU2NGFhNDE4MDhiZjZiNTk1ODJiNTM5IiwidGFnIjoiIn0%3D",
+      "domain": "od.globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "russia_edu_session": {
+      "value": "eyJpdiI6IlplWFl0S28wbzVsWTlMMFNjZVdGSEE9PSIsInZhbHVlIjoiVlB0RW1ES0UrSDk0aGttQzA0Zkh2ZGtBM2RUUlBDaVFZb1BBOVNBQWNKWjVyTnpBQ0JUbG1VZ3lhQkNXMW9YYjBkTVZsSzB6a3pvUno5aG12OUt5ZW96Yno0am43aFVTczRUNDVDQUkzKzJUbkVjVGFaVUdteGQvUnhIUUNKWWoiLCJtYWMiOiIyMjljNDhiYWZiNTU2MGM3YzM4MjEwYjdlMDdjMGQ4ZDg1ZjgzOWRiYjk1OTE3YjMzZDkzZDZiZGE4ZTVhNjY5IiwidGFnIjoiIn0%3D",
+      "domain": "russia-edu.minobrnauki.gov.ru",
+      "timestamp": 1787310589.665767
+    },
+    "_ym_isad": {
+      "value": "2",
+      "domain": ".globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "_ym_visorc": {
+      "value": "b",
+      "domain": ".globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "mdd": {
+      "value": "0",
+      "domain": ".globaluni.ru",
+      "timestamp": 1787310589.665767
+    },
+    "mkmgsgp": {
+      "value": "TK492Y",
+      "domain": ".hybrid.ai",
+      "timestamp": 1787310589.665767
+    },
+    "mkmgrgp": {
+      "value": "TK492Y",
+      "domain": ".hybrid.ai",
+      "timestamp": 1787310589.665767
+    },
+    "IDE": {
+      "value": "AHWqTUmZ5De8nCIUgaVfDEOJasXpO-oNqhuJqPp0H_HJzygiJ1NAK2jqnSWiD_e1feM",
+      "domain": ".doubleclick.net",
+      "timestamp": 1787310589.665767
+    },
+    "yabs-sid": {
+      "value": "583543971787309869",
+      "domain": "mc.yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "bh": {
+      "value": "Ej8iTm90PUE/QnJhbmQiO3Y9Ijk5IiwiR29vZ2xlIENocm9tZSI7dj0iMTUxIiwiQ2hyb21pdW0iO3Y9IjE1MSIaA3g4NiIOMTUxLjAuNzkyMi4xNzAqAj8wOgdXaW5kb3dzQgYxMC4wLjBKAjY0UlsiTm90PUE/QnJhbmQiO3Y9Ijk5LjAuMC4wIiwiR29vZ2xlIENocm9tZSI7dj0iMTUxLjAuNzkyMi4xNzAiLCJDaHJvbWl1bSI7dj0iMTUxLjAuNzkyMi4xNzAiYL/ioNQGah7cyuH/CJLYobEDn8/h6gP7+vDnDev//fYPwf7Phwg=",
+      "domain": ".yandex.ru",
+      "timestamp": 1787310589.665767
+    },
+    "opendoors_session": {
+      "value": "eyJpdiI6IjNXbEtaZVBlQXBjd3lKditEMFVFNGc9PSIsInZhbHVlIjoiVFVINnNoeENrSWJjMlpnVEViQ0o5Q2RESlpjTHpnZHo4alBad0F0VU1qVVdRTTR6UDlWSDlId3NEM3NXNXFOeExBYng4dndNZUt3VEJYRlc1RVNhOUZLNGZUZWszMUlSZFpSSDBMZDRvNXZBWEZoYnV2RCtkbTF3eGxJeStOVisiLCJtYWMiOiI5YmUyOWEyNWY3ODBkNDY0OWViYWQ5NTczMGRkMDVkZDFiZGM2YjM2NjQyMGJmYzcyMGIxOGQ4YTk1ZGFkYzdkIiwidGFnIjoiIn0%3D",
+      "domain": "od.globaluni.ru",
+      "timestamp": 1787310589.665767
+    }
+  },
+  "local_storage": {
+    "od.globaluni.ru": {
+      "_ym_synced": "{}",
+      "_ym_retryReqs": "{}",
+      "_ym50779507_lsid": "553700913715",
+      "_ym_uid": "\"178722253150658262\"",
+      "_ym50779507_il": "\"Sign up\"",
+      "_ym50779507:0_reqNum": "39",
+      "_ym50779507_lastHit": "1787309894173",
+      "_ym_wv2rf:50779507:0": "1"
+    }
+  },
+  "session_storage": {
+    "main": {
+      "__ym_tab_guid": "a8489ea9-5aeb-fa37-c558-9f3188d8fe64"
+    }
+  },
+  "form_data": {
+    "main|select|select-one|xpath:/html/body/header[]/div[]/div[]/nav[]/div[]/select[]|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|hidden|name:_token|": {
+      "filled": true,
+      "sensitive": true
+    },
+    "main|input|checkbox|xpath://*[@id=\"backfeed_form\"]/form[]/div[]/div[]/label[]/input[]|i give my consent to the processing of family name, name and email address in accordance with privacy policy": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|text|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/input[]|email": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787309888.7541988
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/label[]/input[]|i give my consent to the processing of email address in accordance with the legislation of the russian federation": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787309888.7541988
+    },
+    "main|button|submit|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/button[]|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310397.2151709
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/label[]/input[]|family name is not indicated": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/label[]/input[]|name is not indicated": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|text|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/input[]|070 123 4567": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310397.0745063
+    },
+    "main|input|password|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/input[]|password": {
+      "filled": true,
+      "sensitive": true
+    },
+    "main|input|text|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/input[]|latin letters (according to the passport)": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|date|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/input[]|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/label[]/input[]|i confirm the accuracy and correctness of the information i have provided and the authenticity of the submitted documents. i confirm that my level of education meets the requirements of clause 3 of rules of participation in the open doors": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/label[]/input[]|i accept the terms of rules of participation in the open doors russian scholarship project of the global universities association, 2026": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/label[]/input[]|i have read and agree to the privacy policy and the cookie policy": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/label[]/input[]|i agree to the processing of personal data in accordance with the form for adult participants and form for the parent (legal representative) to process the personal data of a minor of the open doors olympiad": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/div[]/label[]/input[]|i give my consent to receive newsletters": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310358.6042416
+    },
+    "main|input|password|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/div[]/input[]|re-enter the password": {
+      "filled": true,
+      "sensitive": true
+    },
+    "main|input|checkbox|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/label[]/input[]|i confirm the accuracy and correctness of the information i have provided and the authenticity of the submitted documents": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310472.8892012
+    },
+    "main|input|text|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/input[]|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310464.257125
+    },
+    "main|input|date|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/input[]|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310470.3854415
+    },
+    "main|input|file|name:files|": {
+      "value": null,
+      "filled": true,
+      "sensitive": false,
+      "updated_at": 1787310484.6399877
+    }
+  },
+  "navigation_history": [
+    "https://od.globaluni.ru/register",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk",
+    "https://od.globaluni.ru/lk/passport",
+    "https://od.globaluni.ru/lk/passport",
+    "https://od.globaluni.ru/lk/passport",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/portfolio/create?member_id=985607",
+    "https://od.globaluni.ru/lk/portfolio/create?member_id=985607",
+    "https://od.globaluni.ru/lk/portfolio/create?member_id=985607",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/portfolio",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/degree/create",
+    "https://od.globaluni.ru/lk/degree/create",
+    "https://od.globaluni.ru/lk/degree/create",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/degree",
+    "https://od.globaluni.ru/lk/statement",
+    "https://od.globaluni.ru/lk/statement",
+    "https://od.globaluni.ru/lk/statement",
+    "https://od.globaluni.ru/lk/statement/create?member_id=985607",
+    "https://od.globaluni.ru/lk/statement/create?member_id=985607",
+    "https://od.globaluni.ru/lk/statement/create?member_id=985607",
+    "https://od.globaluni.ru/lk/achievement",
+    "https://od.globaluni.ru/lk/achievement",
+    "https://od.globaluni.ru/lk/achievement",
+    "https://od.globaluni.ru/lk/achievement/create",
+    "https://od.globaluni.ru/lk/achievement/create",
+    "https://od.globaluni.ru/lk/achievement/create",
+    "https://od.globaluni.ru/lk/entrance-test",
+    "https://od.globaluni.ru/lk/entrance-test"
+  ],
+  "created_at": 1787309870.9811118,
+  "last_activity": 1787310589.665767,
+  "is_authenticated": false,
+  "user_agent": null
+}

@@ -10,8 +10,8 @@ from core.recorder import Recorder
 # Target portal configuration - Open Doors Global University only
 TARGET_PORTAL = {
     "University Name": "Open Doors Global University",
-    # "portal_url": "https://od.globaluni.ru/login"
-    "portal_url": "https://russia-edu.minobrnauki.gov.ru/"
+    "portal_url": "https://od.globaluni.ru"
+    # "portal_url": "https://russia-edu.minobrnauki.gov.ru/"
 }
 # SUPPORTED_DOMAINS = {"od.globaluni.ru"}
 # SUPPORTED_DOMAINS = {"russia-edu.minobrnauki.gov.ru/"}

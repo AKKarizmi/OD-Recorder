@@ -1,0 +1,517 @@
+{
+  "schema_version": 3,
+  "step": "field_18",
+  "change_type": "visibility",
+  "url": "https://od.globaluni.ru/lk/achievement/create",
+  "fields": [
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": null,
+      "id": null,
+      "label": "Select option",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": "off",
+      "placeholder": "Select option",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "name": "",
+        "type": "text",
+        "autocomplete": "off",
+        "spellcheck": "false",
+        "placeholder": "Select option",
+        "tabindex": "0",
+        "class": "multiselect__input",
+        "aria-controls": "listbox-null",
+        "value": "",
+        "style": "width: 0px; position: absolute; padding: 0px;",
+        "aria-activedescendant": "null-1"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|input|text|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]|select option",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "input.multiselect__input[aria-label*=\"Select option\"]",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "textarea",
+      "inputType": "textarea",
+      "name": null,
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/textarea[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "autosize input",
+        "type": "text",
+        "style": "height: 62px;"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]",
+      "field_key": "main|textarea|textarea|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "textarea.autosize",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "textarea",
+      "inputType": "textarea",
+      "name": null,
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/textarea[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "autosize input",
+        "type": "text",
+        "style": "height: 62px;"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]",
+      "field_key": "main|textarea|textarea|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "textarea.autosize",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "textarea",
+      "inputType": "textarea",
+      "name": null,
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[3]/div[1]/div[1]/div[1]/textarea[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "autosize input",
+        "type": "text",
+        "style": "height: 62px;"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]",
+      "field_key": "main|textarea|textarea|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "textarea.autosize",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/textarea[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": null,
+      "id": null,
+      "label": "Select option",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": "off",
+      "placeholder": "Select option",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "name": "",
+        "type": "text",
+        "autocomplete": "off",
+        "spellcheck": "false",
+        "placeholder": "Select option",
+        "tabindex": "0",
+        "class": "multiselect__input",
+        "aria-controls": "listbox-null",
+        "value": "",
+        "style": "width: 0px; position: absolute; padding: 0px;"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|input|text|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/div[]/div[]/input[]|select option",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "input.multiselect__input[aria-label*=\"Select option\"]",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": null,
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[5]/div[1]/div[1]/div[1]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "type": "text",
+        "class": "input"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|input|text|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "input.input",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "file",
+      "name": "files",
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-d0fbf99b": "",
+        "type": "file",
+        "name": "files",
+        "accept": "application/pdf,image/jpeg,image/png"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|input|file|name:files|",
+      "selectors": {
+        "id": null,
+        "name": "files",
+        "css": "input[name=\"files\"]",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/div[]/div[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "button",
+      "inputType": "submit",
+      "name": null,
+      "id": null,
+      "label": "",
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[4]/button[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "type": "submit",
+        "class": "btn btn-primary"
+      },
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/button[]",
+      "field_key": "main|button|submit|xpath://*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/button[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "button.btn",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/form[]/div[]/button[]"
+      }
+    },
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Achievements",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[1]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]",
+      "field_key": "main|h1||xpath://*[@id=\"app\"]/div[]/main[]/div[]/h1[]|",
+      "selectors": {
+        "id": null,
+        "name": null,
+        "css": "h1",
+        "xpath": "//*[@id=\"app\"]/div[]/main[]/div[]/h1[]"
+      }
+    }
+  ],
+  "timestamp": 1787310576314,
+  "change_details": {
+    "count": 7,
+    "fields": [
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[3]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]",
+        "id": null,
+        "tag": "INPUT",
+        "name": null
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[5]/div[1]/div[1]/div[1]/input[1]",
+        "id": null,
+        "tag": "INPUT",
+        "name": null
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[6]/div[1]/div[1]/div[1]/div[1]/input[1]",
+        "id": null,
+        "tag": "INPUT",
+        "name": "files"
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[4]/button[1]",
+        "id": null,
+        "tag": "BUTTON",
+        "name": null
+      }
+    ],
+    "changes": [
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[4]/button[1]",
+        "id": null,
+        "tag": "BUTTON",
+        "name": null,
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null,
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null,
+        "nowVisible": true
+      },
+      {
+        "xpath": "//*[@id=\"app\"]/div[1]/main[1]/div[3]/form[1]/div[2]/div[3]/div[1]/div[1]/div[1]/textarea[1]",
+        "id": null,
+        "tag": "TEXTAREA",
+        "name": null,
+        "nowVisible": true
+      }
+    ]
+  }
+}
