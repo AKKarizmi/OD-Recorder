@@ -7,83 +7,139 @@ import time
 from collections import Counter
 from typing import Any
 
-from core.utils import normalize_xpath
+from core.utils import normalize_xpath, redact_sensitive_value
 
 logger = logging.getLogger(__name__)
 
 SCHEMA_VERSION = 3
 
 
-def generate_multi_strategy_selector(field: dict[str, Any]) -> dict[str, str | None]:
+def generate_multi_strategy_selector(field: dict[str, Any]) -> dict[str, Any]:
     """Generate multiple selector strategies for robust element identification.
     
-    Priority order: id > name > CSS > XPath
-    This provides fallback options when one selector strategy fails.
+    Priority order: id > name > data-* > actual aria-label > placeholder > CSS class + context > XPath
+    Only uses attributes actually present on the element.
+    Never invents aria-label from semantic label or placeholder.
     
     Args:
         field: Field dictionary containing id, name, xpath, and other attributes
         
     Returns:
-        Dictionary with selector strategies: id, name, css, xpath (all nullable)
+        Dictionary with selector_candidates list containing validated selectors,
+        plus structural_xpath for fingerprinting (not execution)
     """
-    selectors = {
-        "id": None,
-        "name": None,
-        "css": None,
-        "xpath": None,
-    }
-    
-    # Priority 1: ID selector (most stable)
-    field_id = field.get("id")
-    if field_id and isinstance(field_id, str) and field_id.strip():
-        selectors["id"] = field_id.strip()
-    
-    # Priority 2: Name selector (stable for form fields)
-    field_name = field.get("name")
-    if field_name and isinstance(field_name, str) and field_name.strip():
-        selectors["name"] = field_name.strip()
-    
-    # Priority 3: CSS selector (combine id/name or use tag + attributes)
-    tag = field.get("tag") or field.get("type") or "*"
+    selector_candidates = []
+    attrs = field.get("attributes", {})
+    tag = field.get("tag") or "*"
     tag = str(tag).lower()
     
-    # CSS identifiers and attribute values need escaping. Keep the independent
-    # id/name strategies when that cannot be done safely with a simple selector.
+    # Helper to validate CSS identifier
     css_identifier = re.compile(r"^-?[A-Za-z_][A-Za-z0-9_-]*$")
     css_attribute_value = re.compile(r'^[^"\\\r\n\f]+$')
-    if selectors["id"] and css_identifier.fullmatch(selectors["id"]):
-        selectors["css"] = f"#{selectors['id']}"
-    elif selectors["name"] and css_attribute_value.fullmatch(selectors["name"]):
-        selectors["css"] = f'{tag}[name="{selectors["name"]}"]'
-    else:
-        # Build CSS from available attributes
-        css_parts = [tag]
-        
-        # Add class if available
-        attrs = field.get("attributes", {})
-        css_class = attrs.get("class")
-        if css_class:
-            # Use first class only for simplicity
-            first_class = css_class.split()[0] if css_class else None
-            if first_class:
-                css_parts.append(f".{first_class}")
-        
-        # Add aria-label or title as attribute selector
-        aria_label = attrs.get("aria-label") or field.get("label")
-        if aria_label:
-            # Sanitize for CSS selector
-            safe_label = re.sub(r'[^\w\s-]', '', str(aria_label)[:30])
-            if safe_label.strip():
-                css_parts.append(f'[aria-label*="{safe_label.strip()}"]')
-        
-        selectors["css"] = "".join(css_parts) if len(css_parts) > 1 else tag
     
-    # Priority 4: XPath (fallback, most fragile but most expressive)
-    xpath = field.get("xpath") or field.get("normalized_xpath")
-    if xpath:
-        selectors["xpath"] = normalize_xpath(xpath)
+    # Priority 1: Stable ID
+    field_id = field.get("id")
+    if field_id and isinstance(field_id, str) and field_id.strip():
+        safe_id = field_id.strip()
+        if css_identifier.fullmatch(safe_id):
+            selector = f"#{safe_id}"
+            selector_candidates.append({
+                "type": "css",
+                "value": selector,
+                "strategy": "id",
+                "validated": True
+            })
     
-    return selectors
+    # Priority 2: Stable name attribute
+    field_name = field.get("name")
+    if field_name and isinstance(field_name, str) and field_name.strip():
+        safe_name = field_name.strip()
+        if css_attribute_value.fullmatch(safe_name):
+            selector = f'{tag}[name="{safe_name}"]'
+            selector_candidates.append({
+                "type": "css",
+                "value": selector,
+                "strategy": "name",
+                "validated": True
+            })
+    
+    # Priority 3: Stable data-* attributes
+    for attr_name, attr_value in sorted(attrs.items()):
+        if attr_name.startswith("data-") and attr_value:
+            if css_attribute_value.fullmatch(attr_value):
+                selector = f'{tag}[{attr_name}="{attr_value}"]'
+                selector_candidates.append({
+                    "type": "css",
+                    "value": selector,
+                    "strategy": "data_attribute",
+                    "validated": True
+                })
+                break  # Use first stable data-* attribute
+    
+    # Priority 4: Actual aria-label (only if present in attributes)
+    # Issue 4: Never translate derived semantic label into aria-label selector
+    actual_aria_label = attrs.get("aria-label")
+    if actual_aria_label and css_attribute_value.fullmatch(actual_aria_label):
+        selector = f'{tag}[aria-label="{actual_aria_label}"]'
+        selector_candidates.append({
+            "type": "css",
+            "value": selector,
+            "strategy": "aria_label",
+            "validated": True
+        })
+    
+    # Priority 5: Placeholder (only if present in attributes)
+    actual_placeholder = attrs.get("placeholder")
+    if actual_placeholder and css_attribute_value.fullmatch(actual_placeholder):
+        selector = f'{tag}[placeholder="{actual_placeholder}"]'
+        selector_candidates.append({
+            "type": "css",
+            "value": selector,
+            "strategy": "placeholder",
+            "validated": True
+        })
+    
+    # Priority 6: Class-based with contextual scope (use only stable classes)
+    css_class = attrs.get("class")
+    if css_class:
+        # Filter out Vue-generated or unstable classes
+        stable_classes = [c for c in css_class.split() if c and not c.startswith('_') and len(c) > 2]
+        if stable_classes:
+            # Use up to 2 most specific classes
+            selector = tag
+            for cls in stable_classes[:2]:
+                if css_identifier.fullmatch(cls):
+                    selector += f".{cls}"
+            if selector != tag:
+                selector_candidates.append({
+                    "type": "css",
+                    "value": selector,
+                    "strategy": "class",
+                    "validated": False  # May not be unique
+                })
+    
+    # Priority 7: Valid executable XPath (raw, not normalized)
+    raw_xpath = field.get("xpath")
+    if raw_xpath:
+        selector_candidates.append({
+            "type": "xpath",
+            "value": raw_xpath,
+            "strategy": "raw_xpath",
+            "validated": True
+        })
+    
+    # Include normalized XPath only as structural fingerprint (never for execution)
+    # Issue 3: Separate executable selectors from structural fingerprints
+    normalized = field.get("normalized_xpath")
+    structural_xpath = None
+    if normalized and normalized != raw_xpath:
+        structural_xpath = normalized
+    
+    return {
+        "candidates": selector_candidates,
+        "primary": selector_candidates[0]["value"] if selector_candidates else None,
+        "structural_xpath": structural_xpath
+    }
 
 
 def normalize_xpath(xpath: Any) -> str:
@@ -105,10 +161,29 @@ def get_field_identity(field: dict[str, Any]) -> str:
     Values and presentation state are intentionally excluded.  ``row_index`` is
     included when available so two otherwise identical repeated-row controls do
     not collapse into one occurrence.
+    
+    Field identity now includes form context to prevent collisions between
+    fields with the same name/label in different forms on the same page.
     """
     tag = field.get("tag") or field.get("type") or ""
     field_id = str(field.get("id") or "").strip()
     field_name = str(field.get("name") or "").strip()
+    
+    # Build form context for identity (Issue 2)
+    form_info = field.get("form") or {}
+    form_context = None
+    if form_info:
+        form_id = form_info.get("formId")
+        form_name = form_info.get("formName")
+        form_action = form_info.get("formAction")
+        if form_id:
+            form_context = f"form_id:{form_id}"
+        elif form_name:
+            form_context = f"form_name:{form_name}"
+        elif form_action:
+            # Normalize form action to route
+            form_context = f"form_action:{form_action}"
+    
     locator = f"id:{field_id}" if field_id else (f"name:{field_name}" if field_name else f"xpath:{normalize_xpath(field.get('xpath'))}")
     parts = [
         str(field.get("frame_path") or "main"),
@@ -117,6 +192,9 @@ def get_field_identity(field: dict[str, Any]) -> str:
         locator,
         _normalise_text(field.get("label")),
     ]
+    # Add form context to prevent collisions across forms
+    if form_context:
+        parts.insert(1, form_context)
     row_index = field.get("row_index")
     if row_index is not None:
         parts.append(f"row:{row_index}")
@@ -170,19 +248,79 @@ _EXTRACT_FIELDS_SCRIPT = r"""
     }
 
     function labelFor(element) {
-        if (element.labels && element.labels.length) return element.labels[0].innerText.trim();
+        // Priority 1: aria-labelledby
         const labelledBy = element.getAttribute('aria-labelledby');
         if (labelledBy) {
             const text = labelledBy.split(/\s+/).map(id => document.getElementById(id)?.innerText || '').join(' ').trim();
-            if (text) return text;
+            if (text) return { label: text, source: 'aria_labelledby' };
         }
+        
+        // Priority 2: actual aria-label
         const aria = element.getAttribute('aria-label');
-        if (aria) return aria.trim();
-        const title = element.getAttribute('title');
-        if (title) return title.trim();
+        if (aria && aria.trim()) return { label: aria.trim(), source: 'aria_label' };
+        
+        // Priority 3: <label for="<input-id>">
+        if (element.id) {
+            const labelFor = document.querySelector('label[for="' + element.id.replace(/"/g, '\\"') + '"]');
+            if (labelFor) {
+                const text = labelFor.innerText.trim();
+                if (text) return { label: text, source: 'label_for' };
+            }
+        }
+        
+        // Priority 4: wrapping ancestor <label>
+        if (element.labels && element.labels.length) {
+            const text = element.labels[0].innerText.trim();
+            if (text) return { label: text, source: 'wrapper_label' };
+        }
+        
+        // Priority 5: fieldset <legend>
+        const fieldset = element.closest('fieldset');
+        if (fieldset) {
+            const legend = fieldset.querySelector('legend');
+            if (legend && legend.innerText.trim()) {
+                return { label: legend.innerText.trim(), source: 'fieldset_legend' };
+            }
+        }
+        
+        // Priority 6: nearby explicit label inside the same field wrapper
+        const fieldWrapper = element.closest('.form-group, .field, .form-field, .input-group, [role="group"]');
+        if (fieldWrapper) {
+            const nearbyLabel = fieldWrapper.querySelector('label:not([for])');
+            if (nearbyLabel && nearbyLabel.innerText.trim()) {
+                return { label: nearbyLabel.innerText.trim(), source: 'wrapper_context' };
+            }
+        }
+        
+        // Priority 7: preceding sibling label/text
+        let prevSibling = element.previousElementSibling;
+        while (prevSibling) {
+            if (prevSibling.matches('label')) {
+                const text = prevSibling.innerText.trim();
+                if (text) return { label: text, source: 'preceding_label' };
+            }
+            if (prevSibling.matches('h1, h2, h3, h4, h5, h6, p, span, div')) {
+                const text = prevSibling.innerText.trim();
+                if (text && text.length < 100) return { label: text, source: 'preceding_text' };
+            }
+            prevSibling = prevSibling.previousElementSibling;
+        }
+        
+        // Priority 8: placeholder (fallback)
         const placeholder = element.getAttribute('placeholder');
-        if (placeholder) return placeholder.trim();
-        return '';
+        if (placeholder && placeholder.trim()) return { label: placeholder.trim(), source: 'placeholder' };
+        
+        // Priority 9: nearby heading / section context
+        const section = element.closest('section, .section, .panel');
+        if (section) {
+            const heading = section.querySelector('h1, h2, h3, h4, h5, h6');
+            if (heading && heading.innerText.trim()) {
+                return { label: heading.innerText.trim(), source: 'section_heading' };
+            }
+        }
+        
+        // Priority 10: empty only when no useful semantic text exists
+        return { label: '', source: 'none' };
     }
 
     function formInfo(element) {
@@ -263,13 +401,15 @@ _EXTRACT_FIELDS_SCRIPT = r"""
             seen.add(el);
             const row = rowInfo(el);
             const form = formInfo(el);
+            const labelInfo = labelFor(el);
             fields.push({
                 type: 'control',
                 tag: el.tagName.toLowerCase(),
                 inputType: el.type || null,
                 name: el.name || null,
                 id: el.id || null,
-                label: labelFor(el),
+                label: labelInfo.label,
+                label_source: labelInfo.source,
                 xpath: xpath(el),
                 frame_path: framePath,
                 visible: !isHidden(el),

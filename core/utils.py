@@ -83,3 +83,46 @@ def mask_sensitive_value(value: str | None, field: dict[str, Any]) -> str | None
         return _REDACTED_VALUE
     
     return value
+
+
+def redact_sensitive_value(value: str | None, field_name: str | None = None, 
+                           input_type: str | None = None) -> tuple[bool, str | None]:
+    """Redact sensitive values like CSRF tokens, passwords, etc.
+    
+    This function determines if a value should be redacted based on field name patterns
+    and input type. It returns both whether redaction occurred and the appropriate value.
+    
+    Args:
+        value: The attribute value to potentially redact
+        field_name: The name attribute of the field
+        input_type: The input type (e.g., 'hidden', 'password', 'text')
+        
+    Returns:
+        Tuple of (value_was_redacted: bool, value_to_store: str|None)
+        - If redacted: (True, None) with value_present flag to indicate value existed
+        - If not sensitive: (False, original_value)
+    """
+    if value is None or value == "":
+        return (False, None)
+    
+    # Check field name patterns for sensitive indicators
+    sensitive_patterns = [
+        "_token", "csrf", "csrf_token", "authenticity_token",
+        "password", "passwd", "secret", "api_key", "apikey",
+        "access_token", "refresh_token", "session_id", "authorization"
+    ]
+    
+    field_name_lower = (field_name or "").lower()
+    input_type_lower = (input_type or "").lower()
+    
+    # Always redact password types
+    if input_type_lower in ("password", "hidden"):
+        return (True, None)
+    
+    # Check for sensitive field names
+    for pattern in sensitive_patterns:
+        if pattern in field_name_lower:
+            return (True, None)
+    
+    # Value is not sensitive
+    return (False, value)
