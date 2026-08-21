@@ -1,12 +1,16 @@
-# Python runtime artifacts
+```
+# Python
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 
-# Local configuration and virtual environments
-config.json
-.venv/
-venv/
+# Logs and temp files
+*.log
+*.tmp
 
-# Recorder output may contain portal and personal data. Keep only deliberately
-# sanitised fixtures outside this directory.
-# recordings/
+# Environment
+.env
+.env.local
+.env.*
+```
