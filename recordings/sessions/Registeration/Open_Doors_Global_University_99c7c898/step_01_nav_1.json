@@ -1,0 +1,182 @@
+{
+  "schema_version": 3,
+  "step": "nav_1",
+  "change_type": "navigation",
+  "url": "https://od.globaluni.ru/register",
+  "fields": [
+    {
+      "type": "control",
+      "tag": "button",
+      "inputType": "submit",
+      "name": null,
+      "id": "hamburger",
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"hamburger\"]",
+      "frame_path": "main",
+      "visible": false,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": null
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "id": "hamburger",
+        "class": "group peer flex h-[2.25rem] w-[2.25rem] items-center justify-center lg:hidden"
+      },
+      "normalized_xpath": "//*[@id=\"hamburger\"]",
+      "field_key": "main|button|submit|id:hamburger|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "#hamburger",
+            "strategy": "id",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "button.group.peer",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"hamburger\"]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "#hamburger",
+        "structural_xpath": null
+      }
+    },
+    {
+      "type": "control",
+      "tag": "select",
+      "inputType": "select-one",
+      "name": null,
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "/html/body/header[1]/div[1]/div[1]/nav[1]/div[1]/select[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": null,
+      "options": [
+        {
+          "value": "ru",
+          "label": "Русский",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "en",
+          "label": "English",
+          "disabled": false,
+          "selected": true
+        },
+        {
+          "value": "fr",
+          "label": "Français",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "es",
+          "label": "Español",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "zh",
+          "label": "中文",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "ar",
+          "label": "العربية",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "hi",
+          "label": "हिन्दी",
+          "disabled": false,
+          "selected": false
+        }
+      ],
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": null
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "header__lang-switcher"
+      },
+      "normalized_xpath": "/html/body/header[]/div[]/div[]/nav[]/div[]/select[]",
+      "field_key": "main|select|select-one|xpath:/html/body/header[]/div[]/div[]/nav[]/div[]/select[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "select.header__lang-switcher",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "/html/body/header[1]/div[1]/div[1]/nav[1]/div[1]/select[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "select.header__lang-switcher",
+        "structural_xpath": "/html/body/header[]/div[]/div[]/nav[]/div[]/select[]"
+      }
+    }
+  ],
+  "timestamp": 1787415590022,
+  "change_details": {
+    "url": "https://od.globaluni.ru/register"
+  }
+}

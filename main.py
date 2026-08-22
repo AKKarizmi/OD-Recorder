@@ -71,21 +71,21 @@ def main():
     
     print(f"Target Portal: {university['University Name']}")
     print(f"Portal URL: {university['portal_url']}")
-
-    categories = ["Overview of the website", "Login", "Registration", "Portofolio Data Entry", "Portofolio Tests"]
-    for idx, category in enumerate(categories):
-        print(f"{idx}: {category}")
+    category = input("Please enter a session name, e.g. Registeration: ")
+    # categories = ["Overview of the website", "Login", "Registration", "Portofolio Data Entry", "Portofolio Tests"]
+    # for idx, category in enumerate(categories):
+    #     print(f"{idx}: {category}")
     
-    while True:
-        try:
-            choice = input("Select category index: ").strip()
-            cat_index = int(choice)
-            if 0 <= cat_index < len(categories):
-                category = categories[cat_index]
-                break
-            print(f"Please enter a number between 0 and {len(categories) - 1}.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+    # while True:
+    #     try:
+    #         choice = input("Select category index: ").strip()
+    #         cat_index = int(choice)
+    #         if 0 <= cat_index < len(categories):
+    #             category = categories[cat_index]
+    #             break
+    #         print(f"Please enter a number between 0 and {len(categories) - 1}.")
+    #     except ValueError:
+    #         print("Invalid input. Please enter a number.")
 
     try:
         user_data_dir = ensure_recorder_user_data_dir(

@@ -1,0 +1,933 @@
+{
+  "schema_version": 3,
+  "step": "field_2",
+  "change_type": "visibility",
+  "url": "https://od.globaluni.ru/register",
+  "fields": [
+    {
+      "type": "control",
+      "tag": "button",
+      "inputType": "submit",
+      "name": null,
+      "id": "hamburger",
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"hamburger\"]",
+      "frame_path": "main",
+      "visible": false,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": null
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "id": "hamburger",
+        "class": "group peer flex h-[2.25rem] w-[2.25rem] items-center justify-center lg:hidden"
+      },
+      "normalized_xpath": "//*[@id=\"hamburger\"]",
+      "field_key": "main|button|submit|id:hamburger|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "#hamburger",
+            "strategy": "id",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "button.group.peer",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"hamburger\"]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "#hamburger",
+        "structural_xpath": null
+      }
+    },
+    {
+      "type": "control",
+      "tag": "select",
+      "inputType": "select-one",
+      "name": null,
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "/html/body/header[1]/div[1]/div[1]/nav[1]/div[1]/select[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": null,
+      "options": [
+        {
+          "value": "ru",
+          "label": "Русский",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "en",
+          "label": "English",
+          "disabled": false,
+          "selected": true
+        },
+        {
+          "value": "fr",
+          "label": "Français",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "es",
+          "label": "Español",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "zh",
+          "label": "中文",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "ar",
+          "label": "العربية",
+          "disabled": false,
+          "selected": false
+        },
+        {
+          "value": "hi",
+          "label": "हिन्दी",
+          "disabled": false,
+          "selected": false
+        }
+      ],
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": null,
+        "formMethod": null
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "header__lang-switcher"
+      },
+      "normalized_xpath": "/html/body/header[]/div[]/div[]/nav[]/div[]/select[]",
+      "field_key": "main|select|select-one|xpath:/html/body/header[]/div[]/div[]/nav[]/div[]/select[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "select.header__lang-switcher",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "/html/body/header[1]/div[1]/div[1]/nav[1]/div[1]/select[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "select.header__lang-switcher",
+        "structural_xpath": "/html/body/header[]/div[]/div[]/nav[]/div[]/select[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "hidden",
+      "name": "_token",
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"registration_form\"]/form[1]/input[1]",
+      "frame_path": "main",
+      "visible": false,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": "/register-email",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "type": "hidden",
+        "name": "_token",
+        "value": "Z33LFmZWjp5PTGjW5WQHhWFJwHPIwhJNiwLZurcJ"
+      },
+      "normalized_xpath": "//*[@id=\"registration_form\"]/form[]/input[]",
+      "field_key": "main|form_action:/register-email|input|hidden|name:_token|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "input[name=\"_token\"]",
+            "strategy": "name",
+            "validated": true
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"registration_form\"]/form[1]/input[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "input[name=\"_token\"]",
+        "structural_xpath": "//*[@id=\"registration_form\"]/form[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": null,
+      "id": null,
+      "label": "Email",
+      "label_source": "wrapper_context",
+      "xpath": "//*[@id=\"registration_form\"]/form[1]/div[1]/div[1]/div[1]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": "Email",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": "/register-email",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "class": "input",
+        "placeholder": "Email"
+      },
+      "normalized_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/input[]",
+      "field_key": "main|form_action:/register-email|input|text|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/input[]|email",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "input[placeholder=\"Email\"]",
+            "strategy": "placeholder",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input.input",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"registration_form\"]/form[1]/div[1]/div[1]/div[1]/input[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "input[placeholder=\"Email\"]",
+        "structural_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "checkbox",
+      "name": null,
+      "id": null,
+      "label": "I give my consent to the processing of email address in accordance with the legislation of the Russian Federation",
+      "label_source": "wrapper_label",
+      "xpath": "//*[@id=\"registration_form\"]/form[1]/div[2]/div[1]/div[1]/label[1]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": true,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": "/register-email",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-6e3841e1": "",
+        "type": "checkbox"
+      },
+      "normalized_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/label[]/input[]",
+      "field_key": "main|form_action:/register-email|input|checkbox|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/label[]/input[]|i give my consent to the processing of email address in accordance with the legislation of the russian federation",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"registration_form\"]/form[1]/div[2]/div[1]/div[1]/label[1]/input[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "//*[@id=\"registration_form\"]/form[1]/div[2]/div[1]/div[1]/label[1]/input[1]",
+        "structural_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/label[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "button",
+      "inputType": "submit",
+      "name": null,
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"registration_form\"]/form[1]/div[3]/div[1]/div[1]/button[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": null,
+        "formAction": "/register-email",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "type": "submit",
+        "class": "btn btn-primary"
+      },
+      "normalized_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/button[]",
+      "field_key": "main|form_action:/register-email|button|submit|xpath://*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/button[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "button.btn.btn-primary",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"registration_form\"]/form[1]/div[3]/div[1]/div[1]/button[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "button.btn.btn-primary",
+        "structural_xpath": "//*[@id=\"registration_form\"]/form[]/div[]/div[]/div[]/button[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "hidden",
+      "name": "_token",
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"backfeed_form\"]/form[1]/input[1]",
+      "frame_path": "main",
+      "visible": false,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-4a2de18a": "",
+        "type": "hidden",
+        "name": "_token",
+        "value": "Z33LFmZWjp5PTGjW5WQHhWFJwHPIwhJNiwLZurcJ"
+      },
+      "normalized_xpath": "//*[@id=\"backfeed_form\"]/form[]/input[]",
+      "field_key": "main|form_name:ref: <Node>|input|hidden|name:_token|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "input[name=\"_token\"]",
+            "strategy": "name",
+            "validated": true
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"backfeed_form\"]/form[1]/input[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "input[name=\"_token\"]",
+        "structural_xpath": "//*[@id=\"backfeed_form\"]/form[]/input[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "text",
+      "name": "name",
+      "id": "name",
+      "label": "Family name, name",
+      "label_source": "placeholder",
+      "xpath": "//*[@id=\"name\"]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": true,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": "Family name, name",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-4a2de18a": "",
+        "type": "text",
+        "id": "name",
+        "name": "name",
+        "class": "feedback-input",
+        "placeholder": "Family name, name",
+        "required": "",
+        "aria-invalid": "false"
+      },
+      "normalized_xpath": "//*[@id=\"name\"]",
+      "field_key": "main|form_name:ref: <Node>|input|text|id:name|family name, name",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "#name",
+            "strategy": "id",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input[name=\"name\"]",
+            "strategy": "name",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input[placeholder=\"Family name, name\"]",
+            "strategy": "placeholder",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input.feedback-input",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"name\"]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "#name",
+        "structural_xpath": null
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "email",
+      "name": "email",
+      "id": "email",
+      "label": "Email",
+      "label_source": "placeholder",
+      "xpath": "//*[@id=\"email\"]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": true,
+      "value_present": false,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": "Email",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-4a2de18a": "",
+        "type": "email",
+        "id": "email",
+        "name": "email",
+        "class": "feedback-input",
+        "placeholder": "Email",
+        "required": "",
+        "inputmode": "email",
+        "aria-invalid": "false"
+      },
+      "normalized_xpath": "//*[@id=\"email\"]",
+      "field_key": "main|form_name:ref: <Node>|input|email|id:email|email",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "#email",
+            "strategy": "id",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input[name=\"email\"]",
+            "strategy": "name",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input[placeholder=\"Email\"]",
+            "strategy": "placeholder",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "input.feedback-input",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"email\"]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "#email",
+        "structural_xpath": null
+      }
+    },
+    {
+      "type": "control",
+      "tag": "textarea",
+      "inputType": "textarea",
+      "name": "message",
+      "id": "message",
+      "label": "Question text",
+      "label_source": "placeholder",
+      "xpath": "//*[@id=\"message\"]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": true,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": "Question text",
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-4a2de18a": "",
+        "id": "message",
+        "name": "message",
+        "class": "feedback-textarea",
+        "placeholder": "Question text",
+        "required": "",
+        "aria-invalid": "false"
+      },
+      "normalized_xpath": "//*[@id=\"message\"]",
+      "field_key": "main|form_name:ref: <Node>|textarea|textarea|id:message|question text",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "#message",
+            "strategy": "id",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "textarea[name=\"message\"]",
+            "strategy": "name",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "textarea[placeholder=\"Question text\"]",
+            "strategy": "placeholder",
+            "validated": true
+          },
+          {
+            "type": "css",
+            "value": "textarea.feedback-textarea",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"message\"]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "#message",
+        "structural_xpath": null
+      }
+    },
+    {
+      "type": "control",
+      "tag": "button",
+      "inputType": "submit",
+      "name": null,
+      "id": null,
+      "label": "",
+      "label_source": "none",
+      "xpath": "//*[@id=\"backfeed_form\"]/form[1]/div[3]/button[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": true,
+      "readonly": false,
+      "required": false,
+      "value_present": false,
+      "checked": null,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-4a2de18a": "",
+        "type": "submit",
+        "class": "feedback-submit",
+        "disabled": ""
+      },
+      "normalized_xpath": "//*[@id=\"backfeed_form\"]/form[]/div[]/button[]",
+      "field_key": "main|form_name:ref: <Node>|button|submit|xpath://*[@id=\"backfeed_form\"]/form[]/div[]/button[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "css",
+            "value": "button.feedback-submit",
+            "strategy": "class",
+            "validated": false
+          },
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"backfeed_form\"]/form[1]/div[3]/button[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "button.feedback-submit",
+        "structural_xpath": "//*[@id=\"backfeed_form\"]/form[]/div[]/button[]"
+      }
+    },
+    {
+      "type": "control",
+      "tag": "input",
+      "inputType": "checkbox",
+      "name": null,
+      "id": null,
+      "label": "I give my consent to the processing of family name, name and email address in accordance with Privacy Policy",
+      "label_source": "wrapper_label",
+      "xpath": "//*[@id=\"backfeed_form\"]/form[1]/div[3]/div[1]/label[1]/input[1]",
+      "frame_path": "main",
+      "visible": true,
+      "disabled": false,
+      "readonly": false,
+      "required": false,
+      "value_present": true,
+      "checked": false,
+      "options": null,
+      "autocomplete": null,
+      "placeholder": null,
+      "constraints": {
+        "min": null,
+        "max": null,
+        "minLength": null,
+        "maxLength": null,
+        "pattern": null,
+        "step": null
+      },
+      "form": {
+        "formId": null,
+        "formName": "ref: <Node>",
+        "formAction": "/backfeed",
+        "formMethod": "post"
+      },
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "attributes": {
+        "data-v-6e3841e1": "",
+        "type": "checkbox"
+      },
+      "normalized_xpath": "//*[@id=\"backfeed_form\"]/form[]/div[]/div[]/label[]/input[]",
+      "field_key": "main|form_name:ref: <Node>|input|checkbox|xpath://*[@id=\"backfeed_form\"]/form[]/div[]/div[]/label[]/input[]|i give my consent to the processing of family name, name and email address in accordance with privacy policy",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"backfeed_form\"]/form[1]/div[3]/div[1]/label[1]/input[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "//*[@id=\"backfeed_form\"]/form[1]/div[3]/div[1]/label[1]/input[1]",
+        "structural_xpath": "//*[@id=\"backfeed_form\"]/form[]/div[]/div[]/label[]/input[]"
+      }
+    },
+    {
+      "type": "static",
+      "tag": "h1",
+      "textContent": "Registration",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"registration_form\"]/form[1]/h1[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"registration_form\"]/form[]/h1[]",
+      "field_key": "main|h1||xpath://*[@id=\"registration_form\"]/form[]/h1[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"registration_form\"]/form[1]/h1[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "//*[@id=\"registration_form\"]/form[1]/h1[1]",
+        "structural_xpath": "//*[@id=\"registration_form\"]/form[]/h1[]"
+      }
+    },
+    {
+      "type": "static",
+      "tag": "h3",
+      "textContent": "Contact us",
+      "ariaLabel": null,
+      "ariaDescribedby": null,
+      "role": null,
+      "id": null,
+      "xpath": "//*[@id=\"contact\"]/div[1]/div[2]/div[1]/div[1]/h3[1]",
+      "frame_path": "main",
+      "visible": true,
+      "className": "text-wrapper-28",
+      "row_index": null,
+      "row_key": null,
+      "row_xpath": null,
+      "dataAttributes": {},
+      "normalized_xpath": "//*[@id=\"contact\"]/div[]/div[]/div[]/div[]/h3[]",
+      "field_key": "main|h3||xpath://*[@id=\"contact\"]/div[]/div[]/div[]/div[]/h3[]|",
+      "selectors": {
+        "candidates": [
+          {
+            "type": "xpath",
+            "value": "//*[@id=\"contact\"]/div[1]/div[2]/div[1]/div[1]/h3[1]",
+            "strategy": "raw_xpath",
+            "validated": true
+          }
+        ],
+        "primary": "//*[@id=\"contact\"]/div[1]/div[2]/div[1]/div[1]/h3[1]",
+        "structural_xpath": "//*[@id=\"contact\"]/div[]/div[]/div[]/div[]/h3[]"
+      }
+    }
+  ],
+  "timestamp": 1787415613532,
+  "change_details": {
+    "changes": [
+      {
+        "xpath": "//*[@id=\"registration_form\"]/form[1]/div[3]/div[1]/div[1]/button[1]",
+        "id": null,
+        "tag": "BUTTON",
+        "name": null,
+        "nowVisible": true
+      }
+    ]
+  }
+}
