@@ -5,6 +5,14 @@
 
 Human Interaction Recorder for university portal websites. Collects safe form metadata and interaction flow to support a separately built autofill system.
 
+## Disclaimer
+
+**For educational, research, and authorized testing purposes only.** This project must not be used for illegal activities, unauthorized access, privacy violations, data theft, or any other harmful or unlawful purpose.
+
+Users are solely responsible for how they use the software, including obtaining permission from website owners and affected individuals, protecting any collected information, and complying with applicable laws and website policies. **The project author and contributors do not authorize or endorse misuse and disclaim responsibility for unlawful or unauthorized use of this software or any resulting harm, to the fullest extent permitted by applicable law.**
+
+This disclaimer does not override any legal obligations or guarantee immunity from liability.
+
 ## Features
 
 - **Privacy-Aware Recording**: Captures safe form values, including pre-filled values, while excluding passwords and security-sensitive fields
