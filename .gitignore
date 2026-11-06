@@ -27,4 +27,8 @@ node_modules/
 dist/
 build/
 target/
+
+# Local recorder output, including account-sensitive browser/session state
+recordings/
 ```
+OD-Recorder.zip

@@ -108,6 +108,10 @@ def load_config(path: str | None = None) -> dict:
         "browser_channel": "chrome",
         # None means auto-detect. An explicit JSON boolean overrides detection.
         "headless": None,
+        # Raw values remain disabled unless explicitly enabled for a test run.
+        "debug_capture_values": False,
+        # Explicitly unsafe opt-in: writes passwords/tokens to recording JSON.
+        "capture_sensitive_values": False,
     }
     config = defaults.copy()
 
@@ -128,6 +132,16 @@ def load_config(path: str | None = None) -> dict:
                     candidate["headless"] = _optional_bool(
                         file_config["headless"], setting_name="headless"
                     )
+                if "debug_capture_values" in file_config:
+                    candidate["debug_capture_values"] = bool(_optional_bool(
+                        file_config["debug_capture_values"],
+                        setting_name="debug_capture_values",
+                    ))
+                if "capture_sensitive_values" in file_config:
+                    candidate["capture_sensitive_values"] = bool(_optional_bool(
+                        file_config["capture_sensitive_values"],
+                        setting_name="capture_sensitive_values",
+                    ))
                 config = candidate
         except (json.JSONDecodeError, OSError, TypeError, ValueError) as e:
             print(f"Warning: Could not load config file {config_path}: {e}")
@@ -143,9 +157,26 @@ DYNAMIC_CAPTURE_DELAY = 0.8
 POLL_INTERVAL = 0.5
 # Playwright timeout values are expressed in milliseconds.
 NAVIGATION_TIMEOUT = 60_000
+# DOM stability bounds used before a dynamic or post-navigation snapshot.
+DOM_STABILITY_QUIET_MS = 600
+DOM_STABILITY_TIMEOUT_MS = 8_000
 # Load configuration from file (if available)
 CONFIG = load_config()
 # Environment variables override config.json; otherwise use platform-aware
 # automatic detection. Windows and macOS are headed by default.
 BROWSER_CHANNEL = get_available_browser_channel(CONFIG.get("browser_channel"))
 HEADLESS_MODE = is_headless_environment(CONFIG.get("headless"))
+_DEBUG_CAPTURE_VALUES_ENV = os.environ.get("PORTAL_DEBUG_CAPTURE_VALUES")
+DEBUG_CAPTURE_VALUES = bool(_optional_bool(
+    _DEBUG_CAPTURE_VALUES_ENV
+    if _DEBUG_CAPTURE_VALUES_ENV and _DEBUG_CAPTURE_VALUES_ENV.strip()
+    else CONFIG.get("debug_capture_values"),
+    setting_name="PORTAL_DEBUG_CAPTURE_VALUES",
+))
+_CAPTURE_SENSITIVE_VALUES_ENV = os.environ.get("PORTAL_CAPTURE_SENSITIVE_VALUES")
+CAPTURE_SENSITIVE_VALUES = bool(_optional_bool(
+    _CAPTURE_SENSITIVE_VALUES_ENV
+    if _CAPTURE_SENSITIVE_VALUES_ENV and _CAPTURE_SENSITIVE_VALUES_ENV.strip()
+    else CONFIG.get("capture_sensitive_values"),
+    setting_name="PORTAL_CAPTURE_SENSITIVE_VALUES",
+))

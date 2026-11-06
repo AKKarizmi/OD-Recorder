@@ -118,16 +118,19 @@ class SessionState:
         }
         self.last_activity = time.time()
     
-    def update_form_data(self, field_key: str, value: Any, is_sensitive: bool = False) -> None:
+    def update_form_data(
+        self, field_key: str, value: Any, is_sensitive: bool = False,
+        persist_sensitive: bool = False,
+    ) -> None:
         """Update form data, respecting sensitivity."""
-        if is_sensitive:
+        if is_sensitive and not persist_sensitive:
             # Don't store sensitive values, just mark as filled
             self.form_data[field_key] = {"filled": True, "sensitive": True}
         else:
             self.form_data[field_key] = {
                 "value": value,
                 "filled": True,
-                "sensitive": False,
+                "sensitive": is_sensitive,
                 "updated_at": time.time()
             }
         self.last_activity = time.time()

@@ -15,7 +15,15 @@ _SENSITIVE_AUTOCOMPLETE_PATTERNS = frozenset({
     "transaction-currency", "transaction-amount",
     "secret", "secret-key", "api-key"
 })
-_SENSITIVE_FIELD_NAMES = frozenset({"password", "passwd", "secret", "token", "apikey", "api_key"})
+_SENSITIVE_FIELD_NAMES = frozenset({
+    "password", "passwd", "secret", "token", "apikey", "api_key",
+    "csrf", "authorization", "access_token", "refresh_token", "session_id",
+})
+_SENSITIVE_FIELD_PATTERN = re.compile(
+    r"(?:^|[_\s-])(?:csrf|token|auth(?:orization)?|access|refresh|session|secret|"
+    r"password|passwd|api[\s_-]?key)(?:$|[_\s-])",
+    re.IGNORECASE,
+)
 _REDACTED_VALUE = "***REDACTED***"
 
 
@@ -46,8 +54,9 @@ def is_sensitive_field(field: dict[str, Any]) -> bool:
     if input_type in _SENSITIVE_INPUT_TYPES:
         return True
     
-    # Check autocomplete attributes and field names/ids
-    for attr_name in ("autocomplete", "name", "id"):
+    # Check autocomplete attributes and field names/ids/labels. Security fields
+    # are excluded even when their input type is an ordinary text type.
+    for attr_name in ("autocomplete", "name", "id", "label"):
         attr_value = str(field.get(attr_name) or "").lower()
         if not attr_value:
             continue
@@ -55,15 +64,26 @@ def is_sensitive_field(field: dict[str, Any]) -> bool:
         if any(pattern in attr_value for pattern in _SENSITIVE_AUTOCOMPLETE_PATTERNS):
             return True
         # Check sensitive field names
-        if any(name in attr_value for name in _SENSITIVE_FIELD_NAMES):
+        if any(name in attr_value for name in _SENSITIVE_FIELD_NAMES) or _SENSITIVE_FIELD_PATTERN.search(attr_value):
+            return True
+
+    attributes = field.get("attributes") or {}
+    for attr_name in ("type", "autocomplete", "name", "id", "aria-label"):
+        attr_value = str(attributes.get(attr_name) or "").lower()
+        if attr_value and (
+            any(name in attr_value for name in _SENSITIVE_FIELD_NAMES)
+            or _SENSITIVE_FIELD_PATTERN.search(attr_value)
+        ):
             return True
     
-    # Check label attribute
-    label_value = str(field.get("label") or "").lower()
-    if any(name in label_value for name in _SENSITIVE_FIELD_NAMES):
-        return True
-    
     return False
+
+
+def safe_field_value(value: Any, field: dict[str, Any] | None) -> Any:
+    """Return a field value only when it is safe to persist."""
+    if value is None or is_sensitive_field(field or {}):
+        return None
+    return value
 
 
 def mask_sensitive_value(value: str | None, field: dict[str, Any]) -> str | None:

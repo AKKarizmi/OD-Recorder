@@ -7,8 +7,12 @@ Human Interaction Recorder for university portal websites. Collects safe form me
 
 ## Features
 
-- **Privacy-First Recording**: Captures form structure, labels, and interactions without storing user-entered values
+- **Privacy-Aware Recording**: Captures safe form values, including pre-filled values, while excluding passwords and security-sensitive fields
 - **Dynamic Schema Detection**: Automatically detects form changes, new fields, and visibility updates
+- **Raw + Semantic Actions**: Coalesces low-level events into replay-oriented actions such as `FILL_FIELD`, `SET_CHECKBOX`, `SELECT_OPTION`, `CLICK_ACTION`, `SUBMIT_FORM`, and `STATE_CHANGE`
+- **Action-Owned State**: Saves immediate event-time state separately from the stable DOM and verifies selection outcomes
+- **Rendered Page Content**: Captures post-login headings, profile details, statuses, tables, links, and image metadata outside form controls
+- **Integrity Validation**: Checks IDs, sequences, action/step cardinality, widget references, and field-key uniqueness before final save
 - **Session Management**: Persists cookies, tokens, and browser state across sessions
 - **Multi-Platform**: Supports Windows, macOS, and Linux with Google Chrome
 - **Profile Isolation**: Uses dedicated Chrome profiles to avoid interfering with daily browsing
@@ -16,9 +20,12 @@ Human Interaction Recorder for university portal websites. Collects safe form me
 
 ## Data Policy
 
+**Recordings capture:**
+- Ordinary field values, including pre-filled values and personal data needed by the autofill workflow
+
 **Recordings intentionally exclude:**
-- Typed values (passwords, personal data, etc.)
-- Hidden CSRF tokens and security values  
+- Password values
+- Hidden fields and security values such as CSRF tokens, session tokens, authorization values, and API keys
 - Generic page text content
 
 Recordings are stored locally as operational output and are ignored by Git.
@@ -32,11 +39,16 @@ Each schema snapshot contains:
 - Autocomplete hints and aria-labels
 - Form information and selected states
 - Native select dropdown options
+- Compact custom-widget state, controller identity, and explicit submit-control intent
+- Raw values and privacy-safe fingerprints for populated, non-secret controls
 
 Interaction logs contain:
-- Event type (click, input, change, submit)
-- Field location (XPath, CSS selectors)
-- Timestamps (no user-entered values)
+- Logical action type and semantic field/widget identity
+- Stable raw-action, semantic-action, interaction, and step IDs
+- Explicit per-field/widget interaction sessions are also saved in `interactions.json`
+- Success, failed, or unverified outcome with verification evidence
+- Uniqueness-validated selectors as supporting metadata
+- Timestamps and safe captured values; excluded sensitive values are not stored
 
 ## Installation
 
@@ -100,6 +112,8 @@ python main.py --cleanup-profiles --older-than 60
 | `PORTAL_HEADLESS` | Run browser in headless mode | Auto-detect |
 | `PORTAL_RECORDER_USER_DATA_DIR` | Custom profile directory path | Platform-specific |
 | `CI` | CI environment flag (enables headless) | `false` |
+| `PORTAL_DEBUG_CAPTURE_VALUES` | Store raw values for fields not classified as secrets or PII | `false` |
+| `PORTAL_CAPTURE_SENSITIVE_VALUES` | Explicitly store password/token-like values in plain JSON | `false` |
 
 ## Output Structure
 
@@ -116,6 +130,13 @@ recordings/sessions/
         └── ...                   # Schema snapshots per step
 ```
 
+Every step schema contains a document-level `page_content` snapshot independent
+of form scope. `actions.json` and `semantic_actions.json` also expose a
+deduplicated `page_content` timeline. Records contain a stable `content_key`,
+semantic kind, text, selector/XPath, frame and section context, plus structured
+table, label/value, link, or image metadata where applicable. Content changes
+are marked as `initial`, `added`, `changed`, or `removed`.
+
 ### Actions JSON Format
 
 ```json
@@ -130,10 +151,14 @@ recordings/sessions/
   "total_steps": 8,
   "actions": [
     {
-      "type": "click",
-      "tag": "BUTTON",
-      "id": "submit-btn",
-      "xpath": "//button[@id=\"submit-btn\"]",
+      "type": "FILL_FIELD",
+      "semantic_action_id": "action_000001",
+      "semantic_sequence": 1,
+      "step_id": "step_000001",
+      "raw_action_ids": ["raw_000001", "raw_000002"],
+      "field_key": "main|form_id:registration|input|email|name:email|email",
+      "value_fingerprint": "fnv1a32:1234abcd:18",
+      "outcome": "success",
       "event_occurred_at": 1705315800123,
       "recorded_at": "2024-01-15T10:30:00.123+00:00"
     }
@@ -149,14 +174,17 @@ Create a `config.json` file for custom settings:
 {
   "categories": ["AUTH", "Registration", "Application", "Data Entry"],
   "browser_channel": "chrome",
-  "headless": false
+  "headless": false,
+  "debug_capture_values": false,
+  "capture_sensitive_values": false
 }
 ```
 
 ## Security Considerations
 
 - Sensitive fields (passwords, credit cards, API keys) are automatically redacted
-- Session tokens and cookies are encrypted at rest
+- Setting `capture_sensitive_values` (or `PORTAL_CAPTURE_SENSITIVE_VALUES`) to true disables that protection and writes sensitive values to plain JSON
+- Session tokens and cookies stay in the local Recorder profile/session cache; protect that directory as account-sensitive data
 - Profile directories use restrictive permissions (0o700)
 - No data is transmitted externally - all recordings are local
 
